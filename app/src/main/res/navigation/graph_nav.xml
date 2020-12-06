@@ -6,7 +6,6 @@
     app:startDestination="@id/listaProductosFragment">
 
     <fragment
-
         android:id="@+id/listaProductosFragment"
         android:name="com.easyprom.lista_productos.ListaProductosFragment"
         android:label="ListaProductosFragment"
