@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
+        <variable
+            name="producto"
+            type="com.easyprom.entidades.Producto" />
+
+        <variable
+            name="listener"
+            type="com.easyprom.lista_productos.ProductoListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:onClick="@{() -> listener.onClick(producto)}">
 
         <ImageView
             android:id="@+id/producto_imagen"
@@ -28,10 +37,11 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="@string/texto_placeholder"
+            android:text="@{producto.campo1}"
             app:layout_constraintEnd_toEndOf="@+id/producto_imagen"
             app:layout_constraintStart_toStartOf="@+id/producto_imagen"
-            app:layout_constraintTop_toBottomOf="@+id/producto_imagen" />
+            app:layout_constraintTop_toBottomOf="@+id/producto_imagen"
+            tools:text="@string/texto_placeholder" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

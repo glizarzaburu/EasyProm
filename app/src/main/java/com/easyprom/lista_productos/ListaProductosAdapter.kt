@@ -23,8 +23,8 @@ class ListaProductosAdapter(private val clickListener: ProductoListener) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(producto: Producto, clickListener: ProductoListener) {
-            // eventualmente acá se pasará la info del producto para que aparezca en el layout
-            // y el evento de click
+            binding.producto = producto
+            binding.listener = clickListener
             binding.executePendingBindings()
         }
 

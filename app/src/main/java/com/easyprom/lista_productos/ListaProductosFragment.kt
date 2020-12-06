@@ -1,19 +1,26 @@
 package com.easyprom.lista_productos
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.easyprom.R
 import com.easyprom.databinding.FragmentListaproductosBinding
 
-class ListaProductosFragment : Fragment(R.layout.fragment_listaproductos) {
+class ListaProductosFragment : Fragment() {
 
     private val viewModel: ListaProductosViewModel by viewModels()
+    private lateinit var binding: FragmentListaproductosBinding
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
 
-        val binding = FragmentListaproductosBinding.inflate(layoutInflater)
+        binding = FragmentListaproductosBinding.inflate(inflater, container, false)
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
 
@@ -22,5 +29,7 @@ class ListaProductosFragment : Fragment(R.layout.fragment_listaproductos) {
             println("El producto es $producto")
         })
         binding.productosLista.adapter = adapter
+
+        return binding.root
     }
 }
