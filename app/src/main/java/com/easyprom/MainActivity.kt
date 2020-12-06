@@ -13,15 +13,6 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        // un cambio en master
-
-        // un cambio nuevo para daniel
-
-        //dfsdfdsf
-
-        //un cambio para juan
-
     }
 
 }
