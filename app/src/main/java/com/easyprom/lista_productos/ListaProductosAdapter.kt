@@ -21,8 +21,9 @@ class ListaProductosAdapter :
     class ListaProductosViewHolder(private val binding: ItemProductoBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind() {
-
+        fun bind(producto: Producto) {
+            // eventualmente acá se pasará la info del producto para que aparezca en el layout
+            binding.executePendingBindings()
         }
     }
 
