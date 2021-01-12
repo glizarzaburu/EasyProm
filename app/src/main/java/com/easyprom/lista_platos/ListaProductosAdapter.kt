@@ -1,11 +1,11 @@
-package com.easyprom.lista_productos
+package com.easyprom.lista_platos
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.easyprom.databinding.ItemProductoBinding
+import com.easyprom.databinding.ItemPlatoBinding
 import com.easyprom.entidades.Plato
 
 class ListaProductosAdapter(private val clickListener: ProductoListener) :
@@ -19,7 +19,7 @@ class ListaProductosAdapter(private val clickListener: ProductoListener) :
         holder.bind(producto, clickListener)
     }
 
-    class ListaProductosViewHolder(private val binding: ItemProductoBinding) :
+    class ListaProductosViewHolder(private val binding: ItemPlatoBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(plato: Plato, clickListener: ProductoListener) {
@@ -31,7 +31,7 @@ class ListaProductosAdapter(private val clickListener: ProductoListener) :
         companion object {
             fun from(parent: ViewGroup): ListaProductosViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
-                val binding = ItemProductoBinding.inflate(layoutInflater, parent, false)
+                val binding = ItemPlatoBinding.inflate(layoutInflater, parent, false)
                 return ListaProductosViewHolder(binding)
             }
         }

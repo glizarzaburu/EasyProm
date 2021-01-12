@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/listaProductosFragment"
-        android:name="com.easyprom.lista_productos.ListaProductosFragment"
+        android:name="com.easyprom.lista_platos.ListaProductosFragment"
         android:label="ListaProductosFragment"
-        tools:layout="@layout/fragment_listaproductos" />
+        tools:layout="@layout/fragment_listaplatos" />
 </navigation>

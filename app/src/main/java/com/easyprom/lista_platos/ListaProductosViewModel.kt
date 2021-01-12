@@ -1,4 +1,4 @@
-package com.easyprom.lista_productos
+package com.easyprom.lista_platos
 
 import android.util.Log
 import androidx.lifecycle.LiveData

@@ -11,7 +11,7 @@
 
         <variable
             name="listener"
-            type="com.easyprom.lista_productos.ProductoListener" />
+            type="com.easyprom.lista_platos.ProductoListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
