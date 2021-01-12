@@ -6,10 +6,10 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.easyprom.databinding.ItemProductoBinding
-import com.easyprom.entidades.Producto
+import com.easyprom.entidades.Plato
 
 class ListaProductosAdapter(private val clickListener: ProductoListener) :
-    ListAdapter<Producto, ListaProductosAdapter.ListaProductosViewHolder>(ListaProductosDiffCallback()) {
+    ListAdapter<Plato, ListaProductosAdapter.ListaProductosViewHolder>(ListaProductosDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListaProductosViewHolder =
         ListaProductosViewHolder.from(parent)
@@ -22,8 +22,8 @@ class ListaProductosAdapter(private val clickListener: ProductoListener) :
     class ListaProductosViewHolder(private val binding: ItemProductoBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(producto: Producto, clickListener: ProductoListener) {
-            binding.producto = producto
+        fun bind(plato: Plato, clickListener: ProductoListener) {
+            binding.producto = plato
             binding.listener = clickListener
             binding.executePendingBindings()
         }
@@ -39,17 +39,17 @@ class ListaProductosAdapter(private val clickListener: ProductoListener) :
 
 }
 
-class ListaProductosDiffCallback : DiffUtil.ItemCallback<Producto>() {
+class ListaProductosDiffCallback : DiffUtil.ItemCallback<Plato>() {
 
     //TODO: Eventualmente cambiar por el criterio que indique que un item es el mismo
     // que otro. Probablemente por su ID
-    override fun areItemsTheSame(oldItem: Producto, newItem: Producto): Boolean =
-        oldItem.campo1 == newItem.campo1
+    override fun areItemsTheSame(oldItem: Plato, newItem: Plato): Boolean =
+        oldItem.id == newItem.id
 
-    override fun areContentsTheSame(oldItem: Producto, newItem: Producto): Boolean =
+    override fun areContentsTheSame(oldItem: Plato, newItem: Plato): Boolean =
         oldItem == newItem
 }
 
-class ProductoListener(val clickListener: (producto: Producto) -> Unit) {
-    fun onClick(producto: Producto) = clickListener(producto)
+class ProductoListener(val clickListener: (plato: Plato) -> Unit) {
+    fun onClick(plato: Plato) = clickListener(plato)
 }

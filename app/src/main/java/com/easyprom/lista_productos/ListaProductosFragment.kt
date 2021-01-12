@@ -24,9 +24,9 @@ class ListaProductosFragment : Fragment() {
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
 
-        val adapter = ListaProductosAdapter(ProductoListener { producto ->
+        val adapter = ListaProductosAdapter(ProductoListener { plato ->
             // acá manejaremos el evento de click. Por ahora un mensaje en consola
-            println("El producto es $producto")
+            println("El plato es $plato")
         })
         binding.productosLista.adapter = adapter
 
