@@ -20,7 +20,7 @@
         android:onClick="@{() -> listener.onClick(plato)}">
 
         <ImageView
-            android:id="@+id/producto_imagen"
+            android:id="@+id/plato_imagen"
             url_imagen="@{plato.urlImagen}"
             android:layout_width="0dp"
             android:layout_height="120dp"
@@ -33,15 +33,28 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/producto_nombre"
+            android:id="@+id/plato_nombre"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="@{plato.nombre}"
-            app:layout_constraintEnd_toEndOf="@+id/producto_imagen"
-            app:layout_constraintStart_toStartOf="@+id/producto_imagen"
-            app:layout_constraintTop_toBottomOf="@+id/producto_imagen"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="@+id/plato_imagen"
+            app:layout_constraintStart_toStartOf="@+id/plato_imagen"
+            app:layout_constraintTop_toBottomOf="@+id/plato_imagen"
             tools:text="@string/texto_placeholder" />
+
+        <TextView
+            android:id="@+id/plato_precio"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@{String.valueOf(plato.precio)}"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="@+id/plato_nombre"
+            app:layout_constraintStart_toStartOf="@+id/plato_nombre"
+            app:layout_constraintTop_toBottomOf="@id/plato_nombre"
+            tools:text="20.50" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -28,6 +28,7 @@ fun ImageView.bingImage(imgUrl: String?) {
         val imgUri = url.toUri().buildUpon().scheme("https").build()
         Glide.with(this.context)
             .load(imgUri)
+            .centerCrop()
             //TODO: agregar placeholder y error acá eventualmente
             .into(this)
     }
