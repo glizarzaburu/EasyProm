@@ -6,7 +6,7 @@
     <data>
 
         <variable
-            name="producto"
+            name="plato"
             type="com.easyprom.entidades.Plato" />
 
         <variable
@@ -17,10 +17,11 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="@{() -> listener.onClick(producto)}">
+        android:onClick="@{() -> listener.onClick(plato)}">
 
         <ImageView
             android:id="@+id/producto_imagen"
+            url_imagen="@{plato.urlImagen}"
             android:layout_width="0dp"
             android:layout_height="120dp"
             android:layout_marginStart="16dp"
@@ -29,15 +30,14 @@
             android:contentDescription="@string/cd_producto_imagen"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_launcher_foreground" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/producto_nombre"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="@{producto.nombre}"
+            android:text="@{plato.nombre}"
             app:layout_constraintEnd_toEndOf="@+id/producto_imagen"
             app:layout_constraintStart_toStartOf="@+id/producto_imagen"
             app:layout_constraintTop_toBottomOf="@+id/producto_imagen"

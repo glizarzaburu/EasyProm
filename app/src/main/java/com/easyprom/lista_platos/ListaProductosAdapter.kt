@@ -23,7 +23,7 @@ class ListaProductosAdapter(private val clickListener: ProductoListener) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(plato: Plato, clickListener: ProductoListener) {
-            binding.producto = plato
+            binding.plato = plato
             binding.listener = clickListener
             binding.executePendingBindings()
         }
