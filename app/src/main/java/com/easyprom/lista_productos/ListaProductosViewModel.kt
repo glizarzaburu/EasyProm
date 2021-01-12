@@ -1,15 +1,51 @@
 package com.easyprom.lista_productos
 
+import android.util.Log
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.easyprom.entidades.Plato
+import com.easyprom.network.AkipaAPI
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
+
+private const val TAG = "ListaProductosViewModel"
 
 class ListaProductosViewModel : ViewModel() {
 
-    // temporal. Eventualmente cambiar por la lista de productos real
-    val listaProductos = listOf(
-        Plato(1, "leche", 10.2),
-        Plato(2, "ceviche", 15.5),
-        Plato(3, "calamares", 19.5)
-    )
+    private var viewModelJob = Job()
+    private val coroutineScope = CoroutineScope(viewModelJob + Dispatchers.Main)
 
+    private val _listadoPlatos = MutableLiveData<List<Plato>>()
+    val listadoPlatos: LiveData<List<Plato>>
+        get() = _listadoPlatos
+
+    init {
+        obtenerListadoPlatos()
+    }
+
+    private fun obtenerListadoPlatos() {
+
+        coroutineScope.launch {
+            val listadoDeferred = AkipaAPI.retrofitService.obtenerListadoPlatosAsync()
+            try {
+                val listadoPlatos = listadoDeferred.await()
+                if (listadoPlatos.platos.isNotEmpty()) {
+                    _listadoPlatos.value = listadoPlatos.platos
+                }
+                Log.i(TAG, listadoPlatos.toString())
+            } catch (e: Exception) {
+                // lista vacia en caso de no haber datos
+                Log.i(TAG, e.toString())
+                _listadoPlatos.value = ArrayList()
+            }
+        }
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        viewModelJob.cancel()
+    }
 }

@@ -1,5 +1,6 @@
 package com.easyprom.network
 
+import com.easyprom.dto.ListadoPlatos
 import com.easyprom.entidades.Plato
 import kotlinx.coroutines.Deferred
 import retrofit2.http.GET
@@ -10,6 +11,6 @@ import retrofit2.http.GET
 interface AkipaApiService {
 
     @GET("listarPlatos.php")
-    fun obtenerListadoPlatosAsync(): Deferred<List<Plato>>
+    fun obtenerListadoPlatosAsync(): Deferred<ListadoPlatos>
 
 }
