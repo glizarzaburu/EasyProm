@@ -5,6 +5,9 @@ import androidx.core.net.toUri
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.RequestBuilder
+import com.bumptech.glide.request.RequestOptions
+import com.easyprom.R
 import com.easyprom.entidades.Plato
 import com.easyprom.lista_platos.ListaProductosAdapter
 
@@ -29,7 +32,16 @@ fun ImageView.bingImage(imgUrl: String?) {
         Glide.with(this.context)
             .load(imgUri)
             .centerCrop()
-            //TODO: agregar placeholder y error acá eventualmente
+            .apply(
+                RequestOptions()
+                    .placeholder(R.drawable.ic_easyprom_logo_placeholder)
+                    .error(R.drawable.ic_easyprom_logo_placeholder)
+            )
+            .into(this)
+    } ?: run {
+        Glide.with(this.context)
+            .load(R.drawable.ic_easyprom_logo_placeholder)
+            .centerCrop()
             .into(this)
     }
 }
