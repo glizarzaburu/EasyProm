@@ -1,7 +1,9 @@
 package com.easyprom.entidades
 
 import android.os.Parcelable
+import com.easyprom.utils.formatearPrecio
 import com.squareup.moshi.Json
+import kotlinx.parcelize.IgnoredOnParcel
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
@@ -18,4 +20,7 @@ data class Plato(
     var urlImagen: String? = null,
     @Json(name = "descripcionPlato")
     var descripcion: String? = null
-) : Parcelable
+) : Parcelable {
+    @IgnoredOnParcel
+    val precioFormateado = precio.formatearPrecio()
+}

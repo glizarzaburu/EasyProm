@@ -50,7 +50,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="@{String.valueOf(plato.precio)}"
+            android:text="@{plato.precioFormateado}"
             android:textAlignment="center"
             app:layout_constraintEnd_toEndOf="@+id/plato_nombre"
             app:layout_constraintStart_toStartOf="@+id/plato_nombre"
