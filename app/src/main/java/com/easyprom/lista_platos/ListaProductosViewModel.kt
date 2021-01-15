@@ -1,6 +1,5 @@
 package com.easyprom.lista_platos
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -11,7 +10,14 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
-private const val TAG = "ListaProductosViewModel"
+/**
+ * Nos indicará si la info de los platos se encuentra
+ * en alguno de los estados establecidos.
+ * CARGANDO -> aún se está obteniendo
+ * ERROR -> no se pudo conseguir la info
+ * LISTO -> información conseguida y lista para uso
+ */
+enum class EstadoListadoPlatos { CARGANDO, ERROR, LISTO }
 
 class ListaProductosViewModel : ViewModel() {
 
@@ -22,6 +28,10 @@ class ListaProductosViewModel : ViewModel() {
     val listadoPlatos: LiveData<List<Plato>>
         get() = _listadoPlatos
 
+    private val _estadoListaPlatos = MutableLiveData<EstadoListadoPlatos>()
+    val estadoListaPlatos: LiveData<EstadoListadoPlatos>
+        get() = _estadoListaPlatos
+
     init {
         obtenerListadoPlatos()
     }
@@ -31,14 +41,14 @@ class ListaProductosViewModel : ViewModel() {
         coroutineScope.launch {
             val listadoDeferred = AkipaAPI.retrofitService.obtenerListadoPlatosAsync()
             try {
+                _estadoListaPlatos.value = EstadoListadoPlatos.CARGANDO
                 val listadoPlatos = listadoDeferred.await()
+                _estadoListaPlatos.value = EstadoListadoPlatos.LISTO
                 if (listadoPlatos.platos.isNotEmpty()) {
                     _listadoPlatos.value = listadoPlatos.platos
                 }
-                Log.i(TAG, listadoPlatos.toString())
             } catch (e: Exception) {
-                // lista vacia en caso de no haber datos
-                Log.i(TAG, e.toString())
+                _estadoListaPlatos.value = EstadoListadoPlatos.ERROR
                 _listadoPlatos.value = ArrayList()
             }
         }
