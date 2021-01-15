@@ -40,6 +40,8 @@
             android:layout_marginTop="16dp"
             android:text="@{plato.nombre}"
             android:textAlignment="center"
+            android:textSize="20sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/plato_imagen"
             app:layout_constraintStart_toStartOf="@+id/plato_imagen"
             app:layout_constraintTop_toBottomOf="@+id/plato_imagen"
@@ -49,13 +51,16 @@
             android:id="@+id/plato_precio"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             android:text="@{plato.precioFormateado}"
             android:textAlignment="center"
+            android:textColor="@color/marca_secundario"
+            android:textSize="16sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/plato_nombre"
             app:layout_constraintStart_toStartOf="@+id/plato_nombre"
             app:layout_constraintTop_toBottomOf="@id/plato_nombre"
-            tools:text="20.50" />
+            tools:text="S/20.50" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

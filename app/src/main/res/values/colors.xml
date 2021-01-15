@@ -7,4 +7,11 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- Estos colores los he sacado de la página de Akipa
+    Las variantes me las saqué del cu** -->
+    <color name="marca_principal">#72201f</color>
+    <color name="marca_principal_claro">#9E2D2C</color>
+    <color name="marca_secundario">#d02430</color>
+    <color name="marca_secundario_claro">#EC2836</color>
 </resources>
