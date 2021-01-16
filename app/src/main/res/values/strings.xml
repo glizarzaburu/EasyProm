@@ -2,4 +2,8 @@
     <string name="app_name">Akipa</string>
     <string name="texto_placeholder">Texto de prueba</string>
     <string name="cd_producto_imagen">Imagen del Producto</string>
+    <string name="texto_cantidad">Cantidad</string>
+    <string name="texto_agregar_al_carrito">Agregar al Carrito</string>
+    <string name="cd_boton_para_reducir_cantidad_de_platos">Boton para reducir cantidad de platos</string>
+    <string name="cd_boton_para_incrementar_la_cantidad_de_platos">Boton para incrementar la cantidad de platos</string>
 </resources>
