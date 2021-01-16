@@ -9,5 +9,18 @@
         android:id="@+id/listaProductosFragment"
         android:name="com.easyprom.lista_platos.ListaProductosFragment"
         android:label="ListaProductosFragment"
-        tools:layout="@layout/fragment_listaplatos" />
+        tools:layout="@layout/fragment_listaplatos" >
+        <action
+            android:id="@+id/action_listaProductosFragment_to_detallePlatoFragment"
+            app:destination="@id/detallePlatoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detallePlatoFragment"
+        android:name="com.easyprom.detalle_plato.DetallePlatoFragment"
+        android:label="DetallePlatoFragment"
+        tools:layout="@layout/fragment_detalle_plato" >
+        <argument
+            android:name="plato"
+            app:argType="com.easyprom.entidades.Plato" />
+    </fragment>
 </navigation>
