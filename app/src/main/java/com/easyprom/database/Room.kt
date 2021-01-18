@@ -22,7 +22,7 @@ abstract class CarritoDatabase : RoomDatabase() {
                     instance = Room.databaseBuilder(
                         context.applicationContext,
                         CarritoDatabase::class.java,
-                        "pokemon_db"
+                        "Akipa_db"
                     ).build()
                     INSTANCE = instance
                 }
