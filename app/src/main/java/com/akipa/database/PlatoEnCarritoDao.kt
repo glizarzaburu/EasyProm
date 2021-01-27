@@ -1,4 +1,4 @@
-package com.easyprom.database
+package com.akipa.database
 
 import androidx.lifecycle.LiveData
 import androidx.room.*

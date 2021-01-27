@@ -1,10 +1,10 @@
-package com.easyprom.ui.lista_platos
+package com.akipa.ui.lista_platos
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.easyprom.entidades.Plato
-import com.easyprom.network.AkipaAPI
+import com.akipa.entidades.Plato
+import com.akipa.network.AkipaAPI
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job

@@ -1,6 +1,6 @@
-package com.easyprom.dto
+package com.akipa.dto
 
-import com.easyprom.entidades.Plato
+import com.akipa.entidades.Plato
 import com.squareup.moshi.Json
 
 data class ListadoPlatos(

@@ -1,4 +1,4 @@
-package com.easyprom.ui.detalle_plato
+package com.akipa.ui.detalle_plato
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
-import com.easyprom.databinding.FragmentDetallePlatoBinding
+import com.akipa.databinding.FragmentDetallePlatoBinding
 
 class DetallePlatoFragment : Fragment() {
 

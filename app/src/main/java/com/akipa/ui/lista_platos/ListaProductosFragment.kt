@@ -1,4 +1,4 @@
-package com.easyprom.ui.lista_platos
+package com.akipa.ui.lista_platos
 
 import android.os.Bundle
 import android.view.*
@@ -7,8 +7,8 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
-import com.easyprom.R
-import com.easyprom.databinding.FragmentListaplatosBinding
+import com.akipa.R
+import com.akipa.databinding.FragmentListaplatosBinding
 
 class ListaProductosFragment : Fragment() {
 

@@ -1,12 +1,12 @@
-package com.easyprom.ui.lista_platos
+package com.akipa.ui.lista_platos
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.easyprom.databinding.ItemPlatoBinding
-import com.easyprom.entidades.Plato
+import com.akipa.databinding.ItemPlatoBinding
+import com.akipa.entidades.Plato
 
 class ListaProductosAdapter(private val clickListener: ProductoListener) :
     ListAdapter<Plato, ListaProductosAdapter.ListaProductosViewHolder>(ListaProductosDiffCallback()) {

@@ -1,4 +1,4 @@
-package com.easyprom.utils
+package com.akipa.utils
 
 private const val SIMBOLO_SOLES = "S/"
 

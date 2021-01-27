@@ -7,11 +7,11 @@
 
         <variable
             name="plato"
-            type="com.easyprom.entidades.Plato" />
+            type="com.akipa.entidades.Plato" />
 
         <variable
             name="viewmodel"
-            type="com.easyprom.ui.detalle_plato.DetallePlatoViewModel" />
+            type="com.akipa.ui.detalle_plato.DetallePlatoViewModel" />
     </data>
 
     <ScrollView

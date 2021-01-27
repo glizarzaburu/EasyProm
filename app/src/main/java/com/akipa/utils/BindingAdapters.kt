@@ -1,4 +1,4 @@
-package com.easyprom.utils
+package com.akipa.utils
 
 import android.view.View
 import android.widget.ImageView
@@ -7,10 +7,10 @@ import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-import com.easyprom.R
-import com.easyprom.entidades.Plato
-import com.easyprom.ui.lista_platos.EstadoListadoPlatos
-import com.easyprom.ui.lista_platos.ListaProductosAdapter
+import com.akipa.R
+import com.akipa.entidades.Plato
+import com.akipa.ui.lista_platos.EstadoListadoPlatos
+import com.akipa.ui.lista_platos.ListaProductosAdapter
 
 /**
  * Utilizado para indicarle la lista de platos a mostrar

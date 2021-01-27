@@ -1,11 +1,11 @@
-package com.easyprom.ui.inicio_sesion
+package com.akipa.ui.inicio_sesion
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.easyprom.R
+import com.akipa.R
 
 class InicioSesionFragment : Fragment() {
 

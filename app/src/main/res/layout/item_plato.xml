@@ -7,11 +7,11 @@
 
         <variable
             name="plato"
-            type="com.easyprom.entidades.Plato" />
+            type="com.akipa.entidades.Plato" />
 
         <variable
             name="listener"
-            type="com.easyprom.ui.lista_platos.ProductoListener" />
+            type="com.akipa.ui.lista_platos.ProductoListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

@@ -1,4 +1,4 @@
-package com.easyprom.network
+package com.akipa.network
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.squareup.moshi.Moshi

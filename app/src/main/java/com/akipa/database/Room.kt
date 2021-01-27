@@ -1,4 +1,4 @@
-package com.easyprom.database
+package com.akipa.database
 
 import android.content.Context
 import androidx.room.Database

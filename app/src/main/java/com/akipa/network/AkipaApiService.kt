@@ -1,7 +1,6 @@
-package com.easyprom.network
+package com.akipa.network
 
-import com.easyprom.dto.ListadoPlatos
-import com.easyprom.entidades.Plato
+import com.akipa.dto.ListadoPlatos
 import kotlinx.coroutines.Deferred
 import retrofit2.http.GET
 

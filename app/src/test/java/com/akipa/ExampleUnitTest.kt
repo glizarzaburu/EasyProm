@@ -1,4 +1,4 @@
-package com.easyprom
+package com.akipa
 
 import org.junit.Test
 

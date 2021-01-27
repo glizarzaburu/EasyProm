@@ -1,4 +1,4 @@
-package com.easyprom
+package com.akipa
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

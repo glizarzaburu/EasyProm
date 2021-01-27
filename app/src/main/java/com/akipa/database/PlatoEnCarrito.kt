@@ -1,4 +1,4 @@
-package com.easyprom.database
+package com.akipa.database
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

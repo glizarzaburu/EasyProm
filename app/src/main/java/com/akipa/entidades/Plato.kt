@@ -1,7 +1,7 @@
-package com.easyprom.entidades
+package com.akipa.entidades
 
 import android.os.Parcelable
-import com.easyprom.utils.formatearPrecio
+import com.akipa.utils.formatearPrecio
 import com.squareup.moshi.Json
 import kotlinx.parcelize.IgnoredOnParcel
 import kotlinx.parcelize.Parcelize
