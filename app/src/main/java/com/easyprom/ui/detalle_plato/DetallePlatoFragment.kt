@@ -1,4 +1,4 @@
-package com.easyprom.detalle_plato
+package com.easyprom.ui.detalle_plato
 
 import android.os.Bundle
 import android.view.LayoutInflater

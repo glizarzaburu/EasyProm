@@ -1,4 +1,4 @@
-package com.easyprom.inicio_sesion
+package com.easyprom.ui.inicio_sesion
 
 import android.os.Bundle
 import android.view.LayoutInflater

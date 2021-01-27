@@ -1,4 +1,4 @@
-package com.easyprom.lista_platos
+package com.easyprom.ui.lista_platos
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

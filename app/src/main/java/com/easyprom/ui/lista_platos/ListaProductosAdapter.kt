@@ -1,4 +1,4 @@
-package com.easyprom.lista_platos
+package com.easyprom.ui.lista_platos
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

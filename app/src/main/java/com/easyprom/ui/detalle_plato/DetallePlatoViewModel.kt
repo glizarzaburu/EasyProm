@@ -1,4 +1,4 @@
-package com.easyprom.detalle_plato
+package com.easyprom.ui.detalle_plato
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations

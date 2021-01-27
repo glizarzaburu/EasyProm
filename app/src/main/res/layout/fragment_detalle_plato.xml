@@ -11,7 +11,7 @@
 
         <variable
             name="viewmodel"
-            type="com.easyprom.detalle_plato.DetallePlatoViewModel" />
+            type="com.easyprom.ui.detalle_plato.DetallePlatoViewModel" />
     </data>
 
     <ScrollView
