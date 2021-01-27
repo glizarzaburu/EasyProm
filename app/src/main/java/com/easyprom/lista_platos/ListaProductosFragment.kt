@@ -1,13 +1,14 @@
 package com.easyprom.lista_platos
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.NavigationUI
+import com.easyprom.R
 import com.easyprom.databinding.FragmentListaplatosBinding
 
 class ListaProductosFragment : Fragment() {
@@ -36,5 +37,23 @@ class ListaProductosFragment : Fragment() {
         binding.productosLista.adapter = adapter
 
         return binding.root
+    }
+
+    override fun onResume() {
+        super.onResume()
+        // Para aparecer el menu hacía el fragment del inicio de sesión
+        // Eventualmente lo usaremos para hacerlo desaparecer tmb
+        // O almenos eso creo yo :thinking:
+        setHasOptionsMenu(true)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.main_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return NavigationUI.onNavDestinationSelected(item, requireView().findNavController())
+                || super.onOptionsItemSelected(item)
     }
 }

@@ -8,8 +8,8 @@
     <fragment
         android:id="@+id/listaProductosFragment"
         android:name="com.easyprom.lista_platos.ListaProductosFragment"
-        android:label="ListaProductosFragment"
-        tools:layout="@layout/fragment_listaplatos" >
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_listaplatos">
         <action
             android:id="@+id/action_listaProductosFragment_to_detallePlatoFragment"
             app:destination="@id/detallePlatoFragment"
@@ -21,10 +21,15 @@
     <fragment
         android:id="@+id/detallePlatoFragment"
         android:name="com.easyprom.detalle_plato.DetallePlatoFragment"
-        android:label="DetallePlatoFragment"
-        tools:layout="@layout/fragment_detalle_plato" >
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_detalle_plato">
         <argument
             android:name="plato"
             app:argType="com.easyprom.entidades.Plato" />
     </fragment>
+    <fragment
+        android:id="@+id/inicioSesionFragment"
+        android:name="com.easyprom.inicio_sesion.InicioSesionFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_inicio_sesion" />
 </navigation>
