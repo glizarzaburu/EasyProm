@@ -16,7 +16,7 @@ import com.akipa.ui.lista_platos.ListaProductosAdapter
  * Utilizado para indicarle la lista de platos a mostrar
  * en la pantalla principal de la app
  */
-@BindingAdapter("listaDatos")
+@BindingAdapter("listaPlatos")
 fun RecyclerView.bindRecyclerView(data: List<Plato>?) {
     val adapter = this.adapter as ListaProductosAdapter?
     adapter?.submitList(data)
