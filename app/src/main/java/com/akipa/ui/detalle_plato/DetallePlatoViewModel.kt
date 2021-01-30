@@ -5,10 +5,7 @@ import androidx.lifecycle.*
 import com.akipa.database.CarritoDatabase
 import com.akipa.database.PlatoEnCarrito
 import com.akipa.entidades.Plato
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 
 class DetallePlatoViewModel(application: Application) : AndroidViewModel(application) {
 
@@ -45,7 +42,9 @@ class DetallePlatoViewModel(application: Application) : AndroidViewModel(applica
         coroutineScope.launch {
             val platoEnCarrito =
                 PlatoEnCarrito(plato.id, plato.nombre, plato.precio, _cantidadPlatos.value ?: 1)
-            database.carritoDao.agregarPlatoAlCarrito(platoEnCarrito)
+            withContext(Dispatchers.IO) {
+                database.carritoDao.agregarPlatoAlCarrito(platoEnCarrito)
+            }
         }
     }
 

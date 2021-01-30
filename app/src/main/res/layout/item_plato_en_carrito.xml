@@ -60,7 +60,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="16dp"
-                    android:text="@{platoEnCarrito.cantidad}"
+                    android:text="@{String.valueOf(platoEnCarrito.cantidad)}"
                     app:layout_constraintEnd_toStartOf="@+id/incrementar_cantidad_boton"
                     app:layout_constraintTop_toTopOf="@id/plato_titulo_texto"
                     tools:text="Cantidad" />

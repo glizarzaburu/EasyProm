@@ -3,8 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+        android:id="@+id/carritoFragment"
+        android:icon="@drawable/ic_shopping_basket"
+        android:title="@string/carrito"
+        app:showAsAction="always" />
+
+    <item
         android:id="@+id/inicioSesionFragment"
         android:icon="@drawable/ic_login"
         android:title="@string/inicio_sesion_menu"
-        app:showAsAction="always" />
+        app:showAsAction="ifRoom" />
 </menu>

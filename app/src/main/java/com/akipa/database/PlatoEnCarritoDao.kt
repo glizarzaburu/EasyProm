@@ -7,16 +7,16 @@ import androidx.room.*
 interface PlatoEnCarritoDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun agregarPlatoAlCarrito(plato: PlatoEnCarrito)
+    suspend fun agregarPlatoAlCarrito(plato: PlatoEnCarrito)
 
     @Update
-    fun cambiarCantidadDePlatos(plato: PlatoEnCarrito)
+    suspend fun cambiarCantidadDePlatos(plato: PlatoEnCarrito)
 
     @Delete
-    fun quitarPlatoDelCarrito(plato: PlatoEnCarrito)
+    suspend fun quitarPlatoDelCarrito(plato: PlatoEnCarrito)
 
     @Query("DELETE FROM platos_en_carrito")
-    fun quitarTodosLosPlatos()
+    suspend fun quitarTodosLosPlatos()
 
     @Query("SELECT * FROM platos_en_carrito")
     fun obtenerTodosPlatosDelCarrito(): LiveData<List<PlatoEnCarrito>>
