@@ -8,7 +8,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.akipa.R
+import com.akipa.database.PlatoEnCarrito
 import com.akipa.entidades.Plato
+import com.akipa.ui.carrito.CarritoAdapter
 import com.akipa.ui.lista_platos.EstadoListadoPlatos
 import com.akipa.ui.lista_platos.ListaProductosAdapter
 
@@ -19,6 +21,16 @@ import com.akipa.ui.lista_platos.ListaProductosAdapter
 @BindingAdapter("listaPlatos")
 fun RecyclerView.bindRecyclerView(data: List<Plato>?) {
     val adapter = this.adapter as ListaProductosAdapter?
+    adapter?.submitList(data)
+}
+
+/**
+ * Utilizado para indicarle la lista de platos agregados
+ * al carrito
+ */
+@BindingAdapter("listaPlatosEnCarrito")
+fun RecyclerView.bindPlatosEnCarrito(data: List<PlatoEnCarrito>?) {
+    val adapter = this.adapter as CarritoAdapter?
     adapter?.submitList(data)
 }
 
