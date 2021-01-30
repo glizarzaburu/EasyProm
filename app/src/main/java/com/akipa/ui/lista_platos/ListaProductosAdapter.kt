@@ -41,8 +41,6 @@ class ListaProductosAdapter(private val clickListener: ProductoListener) :
 
 class ListaProductosDiffCallback : DiffUtil.ItemCallback<Plato>() {
 
-    //TODO: Eventualmente cambiar por el criterio que indique que un item es el mismo
-    // que otro. Probablemente por su ID
     override fun areItemsTheSame(oldItem: Plato, newItem: Plato): Boolean =
         oldItem.id == newItem.id
 
