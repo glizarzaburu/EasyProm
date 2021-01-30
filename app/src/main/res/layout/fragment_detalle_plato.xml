@@ -127,6 +127,7 @@
                 android:id="@+id/agregar_al_carrito_boton"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:onClick="@{() -> viewmodel.agregarPlatoAlCarrito(plato)}"
                 android:text="@string/texto_agregar_al_carrito"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@id/incrementar_cantidad_boton"

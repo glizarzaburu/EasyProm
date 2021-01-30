@@ -1,16 +1,21 @@
 package com.akipa.ui.detalle_plato
 
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Transformations
-import androidx.lifecycle.ViewModel
+import android.app.Application
+import androidx.lifecycle.*
+import com.akipa.database.CarritoDatabase
+import com.akipa.database.PlatoEnCarrito
+import com.akipa.entidades.Plato
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
 
-class DetallePlatoViewModel : ViewModel() {
+class DetallePlatoViewModel(application: Application) : AndroidViewModel(application) {
 
     private val viewmodelJob = Job()
     private val coroutineScope = CoroutineScope(viewmodelJob + Dispatchers.Main)
+
+    private val database = CarritoDatabase.getInstance(application)
 
     /**
      * Variable a modificar internamente
@@ -36,8 +41,27 @@ class DetallePlatoViewModel : ViewModel() {
             }
         }
 
+    fun agregarPlatoAlCarrito(plato: Plato) {
+        coroutineScope.launch {
+            val platoEnCarrito =
+                PlatoEnCarrito(plato.id, plato.nombre, plato.precio, _cantidadPlatos.value ?: 1)
+            database.carritoDao.agregarPlatoAlCarrito(platoEnCarrito)
+        }
+    }
+
     override fun onCleared() {
         super.onCleared()
         viewmodelJob.cancel()
+    }
+
+    class DetallePlatoViewModelFactory(
+        private val application: Application
+    ) : ViewModelProvider.Factory {
+        @Suppress("UNCHECKED_CAST")
+        override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+            if (modelClass.isAssignableFrom(DetallePlatoViewModel::class.java))
+                return DetallePlatoViewModel(application) as T
+            throw IllegalArgumentException("ViewModel Desconocido")
+        }
     }
 }

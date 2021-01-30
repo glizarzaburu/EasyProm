@@ -1,6 +1,7 @@
 package com.akipa.database
 
 import androidx.room.Entity
+import androidx.room.Ignore
 import androidx.room.PrimaryKey
 import com.akipa.utils.formatearPrecio
 
@@ -12,5 +13,6 @@ data class PlatoEnCarrito(
     val precio: Double,
     var cantidad: Int
 ) {
+    @Ignore
     val precioFormateado = precio.formatearPrecio()
 }

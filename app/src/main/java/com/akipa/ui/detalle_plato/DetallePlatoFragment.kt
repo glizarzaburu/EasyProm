@@ -13,7 +13,9 @@ class DetallePlatoFragment : Fragment() {
 
     private lateinit var binding: FragmentDetallePlatoBinding
     private val args: DetallePlatoFragmentArgs by navArgs()
-    private val viewModel: DetallePlatoViewModel by viewModels()
+    private val viewModel: DetallePlatoViewModel by viewModels(factoryProducer = {
+        DetallePlatoViewModel.DetallePlatoViewModelFactory(requireActivity().application)
+    })
 
     override fun onCreateView(
         inflater: LayoutInflater,
