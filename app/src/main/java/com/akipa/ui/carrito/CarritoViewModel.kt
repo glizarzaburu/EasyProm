@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.lifecycle.*
 import com.akipa.database.CarritoDatabase
 import com.akipa.database.PlatoEnCarrito
+import com.akipa.utils.Constantes
 import kotlinx.coroutines.*
 
 class CarritoViewModel(application: Application) : AndroidViewModel(application) {
@@ -19,6 +20,10 @@ class CarritoViewModel(application: Application) : AndroidViewModel(application)
     val platosEnCarrito = database.carritoDao.obtenerTodosPlatosDelCarrito()
 
     fun incrementarCantidadPlato(platoEnCarrito: PlatoEnCarrito) {
+
+        if (platoEnCarrito.cantidad >= Constantes.CANTIDAD_PLATOS_MAXIMA)
+            return
+
         platoEnCarrito.cantidad += 1
         coroutineScope.launch(Dispatchers.IO) {
             database.carritoDao.cambiarCantidadDePlatos(platoEnCarrito)
@@ -26,7 +31,7 @@ class CarritoViewModel(application: Application) : AndroidViewModel(application)
     }
 
     fun reducirCantidadPlato(platoEnCarrito: PlatoEnCarrito) = coroutineScope.launch {
-        if (platoEnCarrito.cantidad <= 0)
+        if (platoEnCarrito.cantidad <= Constantes.CANTIDAD_PLATOS_MINIMA)
             return@launch
 
         platoEnCarrito.cantidad -= 1
@@ -34,7 +39,6 @@ class CarritoViewModel(application: Application) : AndroidViewModel(application)
             database.carritoDao.cambiarCantidadDePlatos(platoEnCarrito)
         }
     }
-
 
     override fun onCleared() {
         super.onCleared()

@@ -5,6 +5,7 @@ import androidx.lifecycle.*
 import com.akipa.database.CarritoDatabase
 import com.akipa.database.PlatoEnCarrito
 import com.akipa.entidades.Plato
+import com.akipa.utils.Constantes
 import kotlinx.coroutines.*
 
 class DetallePlatoViewModel(application: Application) : AndroidViewModel(application) {
@@ -27,15 +28,16 @@ class DetallePlatoViewModel(application: Application) : AndroidViewModel(applica
     }
 
     fun incrementarCantidadPlato() {
-        _cantidadPlatos.value = _cantidadPlatos.value?.plus(1)
+        _cantidadPlatos.value?.let { cantidad ->
+            if (cantidad <= Constantes.CANTIDAD_PLATOS_MAXIMA)
+                _cantidadPlatos.value = _cantidadPlatos.value?.plus(1)
+        }
     }
 
     fun reducirCantidadPlato() =
-        _cantidadPlatos.value.let { cantidad ->
-            if (cantidad != null) {
-                if (cantidad > 1)
-                    _cantidadPlatos.value = _cantidadPlatos.value?.minus(1)
-            }
+        _cantidadPlatos.value?.let { cantidad ->
+            if (cantidad >= Constantes.CANTIDAD_PLATOS_MINIMA)
+                _cantidadPlatos.value = _cantidadPlatos.value?.minus(1)
         }
 
     fun agregarPlatoAlCarrito(plato: Plato) {
