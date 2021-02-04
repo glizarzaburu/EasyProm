@@ -12,4 +12,9 @@
     <string name="cd_logo_akipa">Logo de Akipa</string>
     <string name="inicio_sesion_menu">Inicio Sesión</string>
     <string name="carrito">Carrito</string>
+    <string name="nombre_plato">Plato</string>
+    <string name="precio_plato">Precio</string>
+    <string name="descripcion_plato">Descripcion</string>
+    <string name="agregar_plato">Agregar Plato</string>
+    <string name="cd_imagen_para_nuevo_plato">Imagen para nuevo plato</string>
 </resources>
