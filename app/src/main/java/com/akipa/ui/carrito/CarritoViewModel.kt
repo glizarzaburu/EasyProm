@@ -3,9 +3,8 @@ package com.akipa.ui.carrito
 import android.app.Application
 import androidx.lifecycle.*
 import com.akipa.database.CarritoDatabase
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
+import com.akipa.database.PlatoEnCarrito
+import kotlinx.coroutines.*
 
 class CarritoViewModel(application: Application) : AndroidViewModel(application) {
 
@@ -18,6 +17,24 @@ class CarritoViewModel(application: Application) : AndroidViewModel(application)
      * Lista de todos los platos agregados al carrito
      */
     val platosEnCarrito = database.carritoDao.obtenerTodosPlatosDelCarrito()
+
+    fun incrementarCantidadPlato(platoEnCarrito: PlatoEnCarrito) {
+        platoEnCarrito.cantidad += 1
+        coroutineScope.launch(Dispatchers.IO) {
+            database.carritoDao.cambiarCantidadDePlatos(platoEnCarrito)
+        }
+    }
+
+    fun reducirCantidadPlato(platoEnCarrito: PlatoEnCarrito) = coroutineScope.launch {
+        if (platoEnCarrito.cantidad <= 0)
+            return@launch
+
+        platoEnCarrito.cantidad -= 1
+        withContext(Dispatchers.IO) {
+            database.carritoDao.cambiarCantidadDePlatos(platoEnCarrito)
+        }
+    }
+
 
     override fun onCleared() {
         super.onCleared()

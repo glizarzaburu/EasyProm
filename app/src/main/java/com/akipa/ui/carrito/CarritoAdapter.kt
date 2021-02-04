@@ -53,6 +53,6 @@ class PlatoEnCarritoDiffCallback : DiffUtil.ItemCallback<PlatoEnCarrito>() {
  */
 interface OnClickItemsCarrito {
 
-    fun onAgregarClick()
-    fun onReducirClick()
+    fun onAgregarClick(platoEnCarrito: PlatoEnCarrito)
+    fun onReducirClick(platoEnCarrito: PlatoEnCarrito)
 }

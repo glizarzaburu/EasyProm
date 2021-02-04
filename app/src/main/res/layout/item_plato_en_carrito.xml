@@ -71,7 +71,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="16dp"
                     android:contentDescription="@string/cd_boton_para_incrementar_la_cantidad_de_platos"
-                    android:onClick="@{() -> clickListener.onAgregarClick()}"
+                    android:onClick="@{() -> clickListener.onAgregarClick(platoEnCarrito)}"
                     android:src="@drawable/ic_add"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -82,7 +82,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:contentDescription="@string/cd_boton_para_reducir_cantidad_de_platos"
-                    android:onClick="@{() -> clickListener.onReducirClick()}"
+                    android:onClick="@{() -> clickListener.onReducirClick(platoEnCarrito)}"
                     android:src="@drawable/ic_remove"
                     app:layout_constraintEnd_toEndOf="@id/incrementar_cantidad_boton"
                     app:layout_constraintTop_toBottomOf="@+id/incrementar_cantidad_boton" />

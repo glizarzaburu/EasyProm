@@ -1,15 +1,13 @@
 package com.akipa.ui.carrito
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import com.akipa.database.PlatoEnCarrito
 import com.akipa.databinding.FragmentCarritoBinding
-
-private const val TAG = "CarritoFragment"
 
 class CarritoFragment : Fragment(), OnClickItemsCarrito {
 
@@ -33,13 +31,17 @@ class CarritoFragment : Fragment(), OnClickItemsCarrito {
         return binding.root
     }
 
-    override fun onAgregarClick() {
-        // temporal
-        Log.i(TAG, "Hemos presionado agregar")
+    override fun onAgregarClick(platoEnCarrito: PlatoEnCarrito) {
+        viewModel.incrementarCantidadPlato(platoEnCarrito)
+        actualizarUIPlatosEnCarrito()
     }
 
-    override fun onReducirClick() {
-        // temporal
-        Log.i(TAG, "Hemos presionado reducir")
+    override fun onReducirClick(platoEnCarrito: PlatoEnCarrito) {
+        viewModel.reducirCantidadPlato(platoEnCarrito)
+        actualizarUIPlatosEnCarrito()
     }
+
+    private fun actualizarUIPlatosEnCarrito() =
+        (binding.listaCarrito.adapter as CarritoAdapter).submitList(viewModel.platosEnCarrito.value)
+
 }
