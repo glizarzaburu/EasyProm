@@ -5,11 +5,13 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.NavController
+import androidx.navigation.NavDestination
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.akipa.database.CarritoDatabase
-import com.akipa.database.personal_logueado.PersonalLogueado
 import com.akipa.databinding.ActivityMainBinding
+import com.akipa.utils.Constantes.personalAkipaLogueado
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -17,7 +19,6 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var binding: ActivityMainBinding
-    private var personal: PersonalLogueado? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,6 +30,16 @@ class MainActivity : AppCompatActivity() {
 
         // Para manejar la navegación con el 'up button'
         val navController = findNavController(R.id.my_nav_host_fragment)
+
+        // manipulando la maniobralidad del drawer
+        navController.addOnDestinationChangedListener { nc: NavController, nd: NavDestination, _ ->
+            if (nd.id == nc.graph.startDestination) {
+                drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)
+            } else {
+                drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
+            }
+        }
+
         NavigationUI.setupActionBarWithNavController(this, navController, drawerLayout)
         NavigationUI.setupWithNavController(binding.navigationView, navController)
     }
@@ -46,8 +57,7 @@ class MainActivity : AppCompatActivity() {
                     .personalDao
                     .obtenerPersonalLogueado()
 
-            personalLogueado?.let { personal = it }
-            Log.i("Personal", personal.toString());
+            personalLogueado?.let { personalAkipaLogueado = it }
         }
     }
 }

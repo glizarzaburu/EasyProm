@@ -5,4 +5,6 @@
         android:id="@+id/agregarPlatoFragment"
         android:icon="@drawable/ic_easyprom_logo_placeholder"
         android:title="@string/menu_agregar_plato" />
+
+    <!-- TODO: Resto de opciones a manejar por parte del cajero -->
 </menu>

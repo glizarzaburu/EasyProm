@@ -3,12 +3,10 @@ package com.akipa.ui.lista_platos
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.akipa.dto.ListadoPlatos
 import com.akipa.entidades.Plato
 import com.akipa.network.AkipaAPI
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 
 /**
  * Nos indicará si la info de los platos se encuentra
@@ -36,23 +34,23 @@ class ListaProductosViewModel : ViewModel() {
         obtenerListadoPlatos()
     }
 
-    private fun obtenerListadoPlatos() {
-
+    private fun obtenerListadoPlatos() =
         coroutineScope.launch {
-            val listadoDeferred = AkipaAPI.retrofitService.obtenerListadoPlatosAsync()
+            _estadoListaPlatos.value = EstadoListadoPlatos.CARGANDO
+            lateinit var listado: ListadoPlatos
+            withContext(Dispatchers.IO) {
+                listado = AkipaAPI.retrofitService.obtenerListadoPlatosAsync().await()
+            }
             try {
-                _estadoListaPlatos.value = EstadoListadoPlatos.CARGANDO
-                val listadoPlatos = listadoDeferred.await()
                 _estadoListaPlatos.value = EstadoListadoPlatos.LISTO
-                if (listadoPlatos.platos.isNotEmpty()) {
-                    _listadoPlatos.value = listadoPlatos.platos
+                if (listado.platos.isNotEmpty()) {
+                    _listadoPlatos.value = listado.platos
                 }
             } catch (e: Exception) {
                 _estadoListaPlatos.value = EstadoListadoPlatos.ERROR
                 _listadoPlatos.value = ArrayList()
             }
         }
-    }
 
     override fun onCleared() {
         super.onCleared()
