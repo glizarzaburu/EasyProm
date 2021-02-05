@@ -31,7 +31,7 @@
         android:id="@+id/inicioSesionFragment"
         android:name="com.akipa.ui.inicio_sesion.InicioSesionFragment"
         android:label="@string/app_name"
-        tools:layout="@layout/fragment_inicio_sesion" >
+        tools:layout="@layout/fragment_inicio_sesion">
         <action
             android:id="@+id/action_inicioSesionFragment_to_listaProductosFragment"
             app:destination="@id/listaProductosFragment"
@@ -43,4 +43,9 @@
         android:name="com.akipa.ui.carrito.CarritoFragment"
         android:label="@string/app_name"
         tools:layout="@layout/fragment_carrito" />
+    <fragment
+        android:id="@+id/agregarPlatoFragment"
+        android:name="com.akipa.ui.mantenimiento_platos.agregar_plato.AgregarPlatoFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_agregar_plato" />
 </navigation>

@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/provisional"
+        android:id="@+id/agregarPlatoFragment"
         android:icon="@drawable/ic_easyprom_logo_placeholder"
-        android:title="Provisional" />
+        android:title="@string/menu_agregar_plato" />
 </menu>
