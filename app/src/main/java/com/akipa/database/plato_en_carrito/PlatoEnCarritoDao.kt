@@ -1,7 +1,8 @@
-package com.akipa.database
+package com.akipa.database.plato_en_carrito
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
+import com.akipa.database.plato_en_carrito.PlatoEnCarrito
 
 @Dao
 interface PlatoEnCarritoDao {

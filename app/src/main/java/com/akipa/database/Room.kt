@@ -4,11 +4,20 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.akipa.database.personal_logueado.PersonalLogueado
+import com.akipa.database.personal_logueado.PersonalLogueadoDao
+import com.akipa.database.plato_en_carrito.PlatoEnCarrito
+import com.akipa.database.plato_en_carrito.PlatoEnCarritoDao
 
-@Database(entities = [PlatoEnCarrito::class], version = 1, exportSchema = false)
+@Database(
+    entities = [PlatoEnCarrito::class, PersonalLogueado::class],
+    version = 2,
+    exportSchema = false
+)
 abstract class CarritoDatabase : RoomDatabase() {
 
     abstract val carritoDao: PlatoEnCarritoDao
+    abstract val personalDao: PersonalLogueadoDao
 
     companion object {
 
@@ -23,7 +32,8 @@ abstract class CarritoDatabase : RoomDatabase() {
                         context.applicationContext,
                         CarritoDatabase::class.java,
                         "Akipa_db"
-                    ).build()
+                    ).fallbackToDestructiveMigration()
+                        .build()
                     INSTANCE = instance
                 }
                 return instance

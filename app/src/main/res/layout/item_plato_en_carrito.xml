@@ -7,7 +7,7 @@
 
         <variable
             name="platoEnCarrito"
-            type="com.akipa.database.PlatoEnCarrito" />
+            type="com.akipa.database.plato_en_carrito.PlatoEnCarrito" />
 
         <variable
             name="clickListener"

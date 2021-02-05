@@ -1,4 +1,4 @@
-package com.akipa.database
+package com.akipa.database.plato_en_carrito
 
 import androidx.room.Entity
 import androidx.room.Ignore

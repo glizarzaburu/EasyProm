@@ -3,7 +3,7 @@ package com.akipa.ui.detalle_plato
 import android.app.Application
 import androidx.lifecycle.*
 import com.akipa.database.CarritoDatabase
-import com.akipa.database.PlatoEnCarrito
+import com.akipa.database.plato_en_carrito.PlatoEnCarrito
 import com.akipa.entidades.Plato
 import com.akipa.utils.Constantes
 import kotlinx.coroutines.*

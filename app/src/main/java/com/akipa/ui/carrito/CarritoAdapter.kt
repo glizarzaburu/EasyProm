@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.akipa.database.PlatoEnCarrito
+import com.akipa.database.plato_en_carrito.PlatoEnCarrito
 import com.akipa.databinding.ItemPlatoEnCarritoBinding
 
 class CarritoAdapter(private val clickListener: OnClickItemsCarrito) :

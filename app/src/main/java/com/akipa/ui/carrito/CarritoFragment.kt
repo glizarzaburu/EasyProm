@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.akipa.database.PlatoEnCarrito
+import com.akipa.database.plato_en_carrito.PlatoEnCarrito
 import com.akipa.databinding.FragmentCarritoBinding
 
 class CarritoFragment : Fragment(), OnClickItemsCarrito {

@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.akipa.R
-import com.akipa.database.PlatoEnCarrito
+import com.akipa.database.plato_en_carrito.PlatoEnCarrito
 import com.akipa.entidades.Plato
 import com.akipa.ui.carrito.CarritoAdapter
 import com.akipa.ui.lista_platos.EstadoListadoPlatos
