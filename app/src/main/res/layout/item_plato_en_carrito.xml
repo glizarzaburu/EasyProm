@@ -28,24 +28,26 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <TextView
-                    android:id="@+id/plato_titulo_texto"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="8dp"
-                    android:text="@{platoEnCarrito.nombre}"
-                    android:textAlignment="center"
-                    app:layout_constraintBottom_toBottomOf="@id/reducir_cantidad_boton"
-                    app:layout_constraintEnd_toStartOf="@+id/precio_titulo_texto"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@id/incrementar_cantidad_boton"
-                    tools:text="Plato" />
+                    <TextView
+                        android:id="@+id/plato_titulo_texto"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="8dp"
+                        android:text="@{platoEnCarrito.nombre}"
+                        android:textAlignment="center"
+                        app:layout_constraintBottom_toBottomOf="@id/reducir_cantidad_boton"
+                        app:layout_constraintEnd_toStartOf="@+id/precio_titulo_texto"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/incrementar_cantidad_boton"
+                        app:layout_constraintVertical_bias="0.493"
+                        tools:text="Plato" />
 
-                <TextView
+                    <TextView
                     android:id="@+id/precio_titulo_texto"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
