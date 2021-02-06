@@ -4,6 +4,7 @@
     <string name="cd_producto_imagen">Imagen del Producto</string>
     <string name="texto_cantidad">Cantidad</string>
     <string name="texto_agregar_al_carrito">Agregar al Carrito</string>
+    <string name="texto_agregar_al_carrito2">Ir A Pagar</string>
     <string name="cd_boton_para_reducir_cantidad_de_platos">Boton para reducir cantidad de platos</string>
     <string name="cd_boton_para_incrementar_la_cantidad_de_platos">Boton para incrementar la cantidad de platos</string>
     <string name="usuario">Usuario</string>
@@ -19,4 +20,5 @@
     <string name="cd_imagen_para_nuevo_plato">Imagen para nuevo plato</string>
     <string name="menu_agregar_plato">Agregar Plato</string>
     <string name="profile">Perfil</string>
+    <string name="finalizar_compra">Finalizar Compra</string>
 </resources>
