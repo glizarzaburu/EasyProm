@@ -14,11 +14,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <!-- TODO: aqui va la cabecera para el listado de platos en carrito -->
-
-        <!-- TODO: el resto de la UI -->
-
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/lista_carrito"
             listaPlatosEnCarrito="@{viewmodel.platosEnCarrito}"
@@ -29,7 +24,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:listitem="@layout/fragment_new" />
+            tools:listitem="@layout/item_plato_en_carrito" />
 
         <TextView
             android:id="@+id/subtotal"
@@ -48,7 +43,6 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginBottom="64dp"
-            android:background="@color/marca_secundario_claro"
             android:text="DELIVERY"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -62,7 +56,6 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginBottom="8dp"
-            android:background="@color/marca_secundario_claro"
             android:text="@string/finalizar_compra"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -75,7 +68,6 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginBottom="120dp"
-            android:background="@color/marca_secundario_claro"
             android:text="RESERVA DE PLATO"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
