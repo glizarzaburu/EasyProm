@@ -18,4 +18,5 @@
     <string name="agregar_plato">Agregar Plato</string>
     <string name="cd_imagen_para_nuevo_plato">Imagen para nuevo plato</string>
     <string name="menu_agregar_plato">Agregar Plato</string>
+    <string name="profile">Perfil</string>
 </resources>

@@ -9,6 +9,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.akipa.R
 import com.akipa.databinding.FragmentListaplatosBinding
+import com.akipa.utils.Constantes
 
 class ListaProductosFragment : Fragment() {
 
@@ -19,7 +20,7 @@ class ListaProductosFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         binding = FragmentListaplatosBinding.inflate(inflater, container, false)
         binding.lifecycleOwner = this
@@ -48,7 +49,10 @@ class ListaProductosFragment : Fragment() {
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
-        inflater.inflate(R.menu.main_menu, menu)
+        when (Constantes.personalAkipaLogueado?.puesto) {
+            null -> inflater.inflate(R.menu.main_menu, menu)
+            "Puesto temporal" -> inflater.inflate(R.menu.cajero_logueado_menu, menu)
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
