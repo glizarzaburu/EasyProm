@@ -16,9 +16,11 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/lista_carrito"
+
             listaPlatosEnCarrito="@{viewmodel.platosEnCarrito}"
             android:layout_width="0dp"
             android:layout_height="550dp"
+            android:layout_marginTop="4dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -33,7 +35,7 @@
             android:textColor="@color/marca_oscuro"
             android:textSize="20sp"
             tools:layout_editor_absoluteX="10dp"
-            tools:layout_editor_absoluteY="561dp"
+            tools:layout_editor_absoluteY="452dp"
             tools:text="Subtotal:" />
 
         <Button
