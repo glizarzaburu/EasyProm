@@ -1,7 +1,6 @@
 package com.akipa.ui.lista_platos
 
 import android.os.Bundle
-import android.util.Log
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -61,5 +60,13 @@ class ListaProductosFragment : Fragment() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return NavigationUI.onNavDestinationSelected(item, requireView().findNavController())
                 || super.onOptionsItemSelected(item)
+    }
+
+    override fun onPrepareOptionsMenu(menu: Menu) {
+        super.onPrepareOptionsMenu(menu)
+        if (Constantes.personalAkipaLogueado != null) {
+            menu.findItem(R.id.inicioSesionFragment).isVisible = false
+            menu.findItem(R.id.perfilFragment).isVisible = true
+        }
     }
 }

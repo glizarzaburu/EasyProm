@@ -1,14 +1,11 @@
 package com.akipa.database.personal_logueado
 
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.*
 
 @Dao
 interface PersonalLogueadoDao {
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun iniciarSesion(personalLogueado: PersonalLogueado)
 
     @Query("SELECT * FROM personal_logueado LIMIT 1")

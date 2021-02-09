@@ -47,16 +47,4 @@ class MainActivity : AppCompatActivity() {
         val navControler = findNavController(R.id.my_nav_host_fragment)
         return NavigationUI.navigateUp(navControler, drawerLayout)
     }
-
-    override fun onResume() {
-        super.onResume()
-        lifecycleScope.launch(Dispatchers.IO) {
-            val personalLogueado =
-                AkipaLocalDatabase.getInstance(applicationContext)
-                    .personalDao
-                    .obtenerPersonalLogueado()
-
-            personalLogueado?.let { personalAkipaLogueado = it }
-        }
-    }
 }

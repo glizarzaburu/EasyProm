@@ -10,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import com.akipa.database.AkipaLocalDatabase
 import com.akipa.databinding.FragmentInicioSesionBinding
 import com.akipa.network.AkipaAPI
+import com.akipa.utils.Constantes
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -47,6 +48,11 @@ class InicioSesionFragment : Fragment() {
                 findNavController()
                     .navigate(InicioSesionFragmentDirections.actionInicioSesionFragmentToListaProductosFragment())
             }
+            Constantes.personalAkipaLogueado =
+                AkipaLocalDatabase.getInstance(requireContext().applicationContext)
+                    .personalDao
+                    .obtenerPersonalLogueado()
+            activity?.invalidateOptionsMenu()
         }
     }
 }

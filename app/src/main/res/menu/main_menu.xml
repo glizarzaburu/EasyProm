@@ -13,4 +13,11 @@
         android:icon="@drawable/ic_login"
         android:title="@string/inicio_sesion_menu"
         app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/perfilFragment"
+        android:icon="@drawable/ic_profile"
+        android:title="@string/perfil_menu"
+        android:visible="false"
+        app:showAsAction="ifRoom" />
 </menu>

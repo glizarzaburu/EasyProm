@@ -21,4 +21,6 @@
     <string name="menu_agregar_plato">Agregar Plato</string>
     <string name="profile">Perfil</string>
     <string name="finalizar_compra">Finalizar Compra</string>
+    <string name="mis_pedidos">Mis pedidos</string>
+    <string name="perfil_menu">Perfil</string>
 </resources>
