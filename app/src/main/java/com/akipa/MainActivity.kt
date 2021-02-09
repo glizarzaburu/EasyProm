@@ -3,16 +3,12 @@ package com.akipa
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
-import com.akipa.database.AkipaLocalDatabase
 import com.akipa.databinding.ActivityMainBinding
-import com.akipa.utils.Constantes.personalAkipaLogueado
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
+import com.akipa.utils.Constantes
 
 class MainActivity : AppCompatActivity() {
 
@@ -34,6 +30,14 @@ class MainActivity : AppCompatActivity() {
         navController.addOnDestinationChangedListener { nc: NavController, nd: NavDestination, _ ->
             if (nd.id == nc.graph.startDestination) {
                 drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)
+                // cambio de menu dependiendo si se está logueado o no
+                if (Constantes.personalAkipaLogueado != null) {
+                    binding.navigationView.menu.clear()
+                    binding.navigationView.inflateMenu(R.menu.cajero_drawer_menu)
+                } else {
+                    binding.navigationView.menu.clear()
+                    binding.navigationView.inflateMenu(R.menu.cliente_drawer_menu)
+                }
             } else {
                 drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
             }

@@ -23,4 +23,6 @@
     <string name="finalizar_compra">Finalizar Compra</string>
     <string name="mis_pedidos">Mis pedidos</string>
     <string name="perfil_menu">Perfil</string>
+    <string name="gestion_de_platos">Gestion de Platos</string>
+    <string name="gestion_de_pedidos">Gestion de Pedidos</string>
 </resources>

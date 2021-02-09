@@ -44,15 +44,18 @@ class InicioSesionFragment : Fragment() {
                 .personalDao
                 .iniciarSesion(personal.toPersonalLogueado())
 
-            withContext(Dispatchers.Main) {
-                findNavController()
-                    .navigate(InicioSesionFragmentDirections.actionInicioSesionFragmentToListaProductosFragment())
-            }
+            // Se guarda la sesión en esta variable global
             Constantes.personalAkipaLogueado =
                 AkipaLocalDatabase.getInstance(requireContext().applicationContext)
                     .personalDao
                     .obtenerPersonalLogueado()
-            activity?.invalidateOptionsMenu()
+
+            withContext(Dispatchers.Main) {
+                // se prepara para el cambio del toolbar menu
+                activity?.invalidateOptionsMenu()
+                findNavController()
+                    .navigate(InicioSesionFragmentDirections.actionInicioSesionFragmentToListaProductosFragment())
+            }
         }
     }
 }
