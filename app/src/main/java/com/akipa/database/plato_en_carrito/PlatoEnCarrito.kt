@@ -15,4 +15,7 @@ data class PlatoEnCarrito(
 ) {
     @Ignore
     val precioFormateado = precio.formatearPrecio()
+
+    @Ignore
+    val cantidadUI = cantidad.toString()
 }

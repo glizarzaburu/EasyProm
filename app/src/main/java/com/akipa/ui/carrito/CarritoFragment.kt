@@ -33,15 +33,10 @@ class CarritoFragment : Fragment(), OnClickItemsCarrito {
 
     override fun onAgregarClick(platoEnCarrito: PlatoEnCarrito) {
         viewModel.incrementarCantidadPlato(platoEnCarrito)
-        actualizarUIPlatosEnCarrito()
     }
 
     override fun onReducirClick(platoEnCarrito: PlatoEnCarrito) {
         viewModel.reducirCantidadPlato(platoEnCarrito)
-        actualizarUIPlatosEnCarrito()
     }
-
-    private fun actualizarUIPlatosEnCarrito() =
-        (binding.listaCarrito.adapter as CarritoAdapter).submitList(viewModel.platosEnCarrito.value)
 
 }
