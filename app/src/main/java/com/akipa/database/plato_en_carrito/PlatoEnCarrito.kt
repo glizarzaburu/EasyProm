@@ -11,7 +11,8 @@ data class PlatoEnCarrito(
     val id: Int,
     val nombre: String,
     val precio: Double,
-    var cantidad: Int
+    var cantidad: Int,
+    val urlImagen: String?
 ) {
     @Ignore
     val precioFormateado = precio.formatearPrecio()

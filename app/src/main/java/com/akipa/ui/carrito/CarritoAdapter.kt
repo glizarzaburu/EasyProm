@@ -55,4 +55,5 @@ interface OnClickItemsCarrito {
 
     fun onAgregarClick(platoEnCarrito: PlatoEnCarrito)
     fun onReducirClick(platoEnCarrito: PlatoEnCarrito)
+    fun onEliminarClick(platoEnCarrito: PlatoEnCarrito)
 }

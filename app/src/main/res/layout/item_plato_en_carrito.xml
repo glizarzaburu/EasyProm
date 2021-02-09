@@ -24,7 +24,6 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="5dp"
@@ -34,9 +33,10 @@
 
                 <ImageView
                     android:id="@+id/imagePlato"
+                    url_imagen="@{platoEnCarrito.urlImagen}"
                     android:layout_width="150dp"
                     android:layout_height="125dp"
-                    app:srcCompat="@drawable/fod1" />
+                    tools:srcCompat="@drawable/ic_broken_image" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -131,6 +131,7 @@
                         android:layout_alignParentEnd="true"
                         android:layout_marginTop="35dp"
                         android:layout_marginEnd="4dp"
+                        android:onClick="@{() -> clickListener.onEliminarClick(platoEnCarrito)}"
                         android:src="@drawable/ic_baseline_delete_24" />
 
                 </RelativeLayout>

@@ -47,7 +47,7 @@ class DetallePlatoViewModel(application: Application) : AndroidViewModel(applica
     fun agregarPlatoAlCarrito(plato: Plato) {
         coroutineScope.launch {
             val platoEnCarrito =
-                PlatoEnCarrito(plato.id, plato.nombre, plato.precio, _cantidadPlatos.value ?: 1)
+                PlatoEnCarrito(plato.id, plato.nombre, plato.precio, _cantidadPlatos.value ?: 1, plato.urlImagen)
             withContext(Dispatchers.IO) {
                 database.carritoDao.agregarPlatoAlCarrito(platoEnCarrito)
             }

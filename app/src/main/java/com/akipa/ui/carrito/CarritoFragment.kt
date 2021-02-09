@@ -39,4 +39,8 @@ class CarritoFragment : Fragment(), OnClickItemsCarrito {
         viewModel.reducirCantidadPlato(platoEnCarrito)
     }
 
+    override fun onEliminarClick(platoEnCarrito: PlatoEnCarrito) {
+        viewModel.quitarPlato(platoEnCarrito)
+    }
+
 }

@@ -11,7 +11,7 @@ import com.akipa.database.plato_en_carrito.PlatoEnCarritoDao
 
 @Database(
     entities = [PlatoEnCarrito::class, PersonalLogueado::class],
-    version = 2,
+    version = 3,
     exportSchema = false
 )
 abstract class AkipaLocalDatabase : RoomDatabase() {

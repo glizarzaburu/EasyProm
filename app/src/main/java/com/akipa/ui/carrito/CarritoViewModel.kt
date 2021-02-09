@@ -40,6 +40,10 @@ class CarritoViewModel(application: Application) : AndroidViewModel(application)
         }
     }
 
+    fun quitarPlato(platoEnCarrito: PlatoEnCarrito) = coroutineScope.launch(Dispatchers.IO) {
+        database.carritoDao.quitarPlatoDelCarrito(platoEnCarrito)
+    }
+
     override fun onCleared() {
         super.onCleared()
         viewModelJob.cancel()
