@@ -67,6 +67,9 @@ class ListaProductosFragment : Fragment() {
         if (Constantes.personalAkipaLogueado != null) {
             menu.findItem(R.id.inicioSesionFragment).isVisible = false
             menu.findItem(R.id.perfilFragment).isVisible = true
+        } else {
+            menu.findItem(R.id.inicioSesionFragment).isVisible = true
+            menu.findItem(R.id.perfilFragment).isVisible = false
         }
     }
 }

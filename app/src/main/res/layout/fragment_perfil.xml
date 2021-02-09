@@ -1,37 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
-        android:id="@+id/nombre_personal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Juan Carlos Castillo A" />
+    <data>
 
-    <TextView
-        android:id="@+id/puesto_personal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="@+id/nombre_personal"
-        app:layout_constraintStart_toStartOf="@+id/nombre_personal"
-        app:layout_constraintTop_toBottomOf="@id/nombre_personal"
-        tools:text="Cajero" />
+        <variable
+            name="personalLogueado"
+            type="com.akipa.database.personal_logueado.PersonalLogueado" />
+    </data>
 
-    <Button
-        android:id="@+id/cerrar_sesion"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:text="@string/cerrar_sesion"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/puesto_personal" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/nombre_personal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@{personalLogueado.nombreCompleto}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Juan Carlos Castillo A" />
+
+        <TextView
+            android:id="@+id/puesto_personal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{personalLogueado.puesto}"
+            app:layout_constraintEnd_toEndOf="@+id/nombre_personal"
+            app:layout_constraintStart_toStartOf="@+id/nombre_personal"
+            app:layout_constraintTop_toBottomOf="@id/nombre_personal"
+            tools:text="Cajero" />
+
+        <Button
+            android:id="@+id/cerrar_sesion"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:text="@string/cerrar_sesion"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/puesto_personal" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
