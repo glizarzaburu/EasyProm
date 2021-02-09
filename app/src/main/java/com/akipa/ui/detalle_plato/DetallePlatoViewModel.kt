@@ -27,6 +27,10 @@ class DetallePlatoViewModel(application: Application) : AndroidViewModel(applica
         it.toString()
     }
 
+    private val _navegacionAlListadoPlatos = MutableLiveData(false)
+    val navegacionAlListadoPlatos: LiveData<Boolean>
+        get() = _navegacionAlListadoPlatos
+
     fun incrementarCantidadPlato() {
         _cantidadPlatos.value?.let { cantidad ->
             if (cantidad <= Constantes.CANTIDAD_PLATOS_MAXIMA)
@@ -47,7 +51,12 @@ class DetallePlatoViewModel(application: Application) : AndroidViewModel(applica
             withContext(Dispatchers.IO) {
                 database.carritoDao.agregarPlatoAlCarrito(platoEnCarrito)
             }
+            _navegacionAlListadoPlatos.value = true
         }
+    }
+
+    fun navegacionAlListadoPlatosTerminada() {
+        _navegacionAlListadoPlatos.value = false
     }
 
     override fun onCleared() {

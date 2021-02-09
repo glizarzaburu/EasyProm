@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.akipa.databinding.FragmentDetallePlatoBinding
 
@@ -28,6 +29,13 @@ class DetallePlatoFragment : Fragment() {
         binding.viewmodel = viewModel
 
         binding.plato = args.plato
+
+        viewModel.navegacionAlListadoPlatos.observe(viewLifecycleOwner) {
+            if (it) {
+                findNavController().navigate(DetallePlatoFragmentDirections.actionDetallePlatoFragmentToListaProductosFragment())
+                viewModel.navegacionAlListadoPlatosTerminada()
+            }
+        }
 
         return binding.root
     }
