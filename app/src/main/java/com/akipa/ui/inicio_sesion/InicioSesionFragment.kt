@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import com.akipa.database.CarritoDatabase
+import com.akipa.database.AkipaLocalDatabase
 import com.akipa.databinding.FragmentInicioSesionBinding
 import com.akipa.network.AkipaAPI
 import kotlinx.coroutines.Dispatchers
@@ -39,7 +39,7 @@ class InicioSesionFragment : Fragment() {
         // si el personal está autorizado a loguearse, procedemos a salvar la sesión localmente
         // y navegamos al listado de platos
         if (personal.id != null) {
-            CarritoDatabase.getInstance(requireContext().applicationContext)
+            AkipaLocalDatabase.getInstance(requireContext().applicationContext)
                 .personalDao
                 .iniciarSesion(personal.toPersonalLogueado())
 

@@ -2,7 +2,7 @@ package com.akipa.ui.carrito
 
 import android.app.Application
 import androidx.lifecycle.*
-import com.akipa.database.CarritoDatabase
+import com.akipa.database.AkipaLocalDatabase
 import com.akipa.database.plato_en_carrito.PlatoEnCarrito
 import com.akipa.utils.Constantes
 import kotlinx.coroutines.*
@@ -12,7 +12,7 @@ class CarritoViewModel(application: Application) : AndroidViewModel(application)
     private val viewModelJob = Job()
     private val coroutineScope = CoroutineScope(viewModelJob + Dispatchers.Main)
 
-    private val database = CarritoDatabase.getInstance(application.applicationContext)
+    private val database = AkipaLocalDatabase.getInstance(application.applicationContext)
 
     /**
      * Lista de todos los platos agregados al carrito

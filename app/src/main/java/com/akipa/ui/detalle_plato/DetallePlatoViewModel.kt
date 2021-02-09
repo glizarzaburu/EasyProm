@@ -2,7 +2,7 @@ package com.akipa.ui.detalle_plato
 
 import android.app.Application
 import androidx.lifecycle.*
-import com.akipa.database.CarritoDatabase
+import com.akipa.database.AkipaLocalDatabase
 import com.akipa.database.plato_en_carrito.PlatoEnCarrito
 import com.akipa.entidades.Plato
 import com.akipa.utils.Constantes
@@ -13,7 +13,7 @@ class DetallePlatoViewModel(application: Application) : AndroidViewModel(applica
     private val viewmodelJob = Job()
     private val coroutineScope = CoroutineScope(viewmodelJob + Dispatchers.Main)
 
-    private val database = CarritoDatabase.getInstance(application)
+    private val database = AkipaLocalDatabase.getInstance(application)
 
     /**
      * Variable a modificar internamente

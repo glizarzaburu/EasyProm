@@ -8,7 +8,7 @@ import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
-import com.akipa.database.CarritoDatabase
+import com.akipa.database.AkipaLocalDatabase
 import com.akipa.databinding.ActivityMainBinding
 import com.akipa.utils.Constantes.personalAkipaLogueado
 import kotlinx.coroutines.Dispatchers
@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity() {
         super.onResume()
         lifecycleScope.launch(Dispatchers.IO) {
             val personalLogueado =
-                CarritoDatabase.getInstance(applicationContext)
+                AkipaLocalDatabase.getInstance(applicationContext)
                     .personalDao
                     .obtenerPersonalLogueado()
 

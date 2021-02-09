@@ -55,10 +55,7 @@ class ListaProductosFragment : Fragment() {
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
-        when (Constantes.personalAkipaLogueado?.puesto) {
-            null -> inflater.inflate(R.menu.main_menu, menu)
-            "Puesto temporal" -> inflater.inflate(R.menu.cajero_logueado_menu, menu)
-        }
+        inflater.inflate(R.menu.main_menu, menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

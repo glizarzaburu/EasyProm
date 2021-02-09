@@ -14,7 +14,7 @@ import com.akipa.database.plato_en_carrito.PlatoEnCarritoDao
     version = 2,
     exportSchema = false
 )
-abstract class CarritoDatabase : RoomDatabase() {
+abstract class AkipaLocalDatabase : RoomDatabase() {
 
     abstract val carritoDao: PlatoEnCarritoDao
     abstract val personalDao: PersonalLogueadoDao
@@ -22,15 +22,15 @@ abstract class CarritoDatabase : RoomDatabase() {
     companion object {
 
         @Volatile
-        private var INSTANCE: CarritoDatabase? = null
+        private var INSTANCE: AkipaLocalDatabase? = null
 
-        fun getInstance(context: Context): CarritoDatabase {
+        fun getInstance(context: Context): AkipaLocalDatabase {
             synchronized(this) {
                 var instance = INSTANCE
                 if (instance == null) {
                     instance = Room.databaseBuilder(
                         context.applicationContext,
-                        CarritoDatabase::class.java,
+                        AkipaLocalDatabase::class.java,
                         "Akipa_db"
                     ).fallbackToDestructiveMigration()
                         .build()
