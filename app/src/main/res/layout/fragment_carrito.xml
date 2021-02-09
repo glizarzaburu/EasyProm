@@ -14,20 +14,67 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <!-- TODO: aqui va la cabecera para el listado de platos en carrito -->
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/lista_carrito"
+
             listaPlatosEnCarrito="@{viewmodel.platosEnCarrito}"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="550dp"
+            android:layout_marginTop="4dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:listitem="@layout/item_plato_en_carrito" />
 
-        <!-- TODO: el resto de la UI -->
+        <TextView
+            android:id="@+id/subtotal"
+            android:layout_width="217dp"
+            android:layout_height="27dp"
+            android:textColor="@color/marca_oscuro"
+            android:textSize="20sp"
+            tools:layout_editor_absoluteX="10dp"
+            tools:layout_editor_absoluteY="452dp"
+            tools:text="Subtotal:" />
+
+        <Button
+            android:id="@+id/pedido_por_delivery"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="64dp"
+            android:text="DELIVERY"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/finalizar_compra"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="8dp"
+            android:text="@string/finalizar_compra"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/reserva_de_plato"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="120dp"
+            android:text="RESERVA DE PLATO"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>
