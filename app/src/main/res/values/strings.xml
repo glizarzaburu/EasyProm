@@ -25,4 +25,5 @@
     <string name="perfil_menu">Perfil</string>
     <string name="gestion_de_platos">Gestion de Platos</string>
     <string name="gestion_de_pedidos">Gestion de Pedidos</string>
+    <string name="cerrar_sesion">Cerrar Sesión</string>
 </resources>
