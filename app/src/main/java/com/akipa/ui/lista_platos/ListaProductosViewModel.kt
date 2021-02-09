@@ -34,7 +34,7 @@ class ListaProductosViewModel : ViewModel() {
         obtenerListadoPlatos()
     }
 
-    private fun obtenerListadoPlatos() =
+    fun obtenerListadoPlatos() =
         coroutineScope.launch {
             _estadoListaPlatos.value = EstadoListadoPlatos.CARGANDO
             lateinit var listado: ListadoPlatos

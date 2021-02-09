@@ -1,6 +1,7 @@
 package com.akipa.ui.lista_platos
 
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -35,6 +36,11 @@ class ListaProductosFragment : Fragment() {
                 )
         })
         binding.productosLista.adapter = adapter
+
+        binding.swipeRefresh.setOnRefreshListener {
+            viewModel.obtenerListadoPlatos()
+            binding.swipeRefresh.isRefreshing = false
+        }
 
         return binding.root
     }
