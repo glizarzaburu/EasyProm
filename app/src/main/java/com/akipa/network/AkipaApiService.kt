@@ -2,6 +2,7 @@ package com.akipa.network
 
 import com.akipa.dto.ListadoPlatos
 import com.akipa.dto.PersonalAutorizado
+import com.akipa.dto.PlatoRegistradoResponse
 import kotlinx.coroutines.Deferred
 import retrofit2.http.*
 
@@ -18,4 +19,13 @@ interface AkipaApiService {
         @Query("usuario") usuario: String,
         @Query("contrasena") contrasena: String
     ): Deferred<PersonalAutorizado>
+
+    @FormUrlEncoded
+    @POST("registrarPlato.php")
+    fun registrarPlatoAsync(
+        @Field("nombre") nombre: String,
+        @Field("precio") precio: Double,
+        @Field("foto") foto: String,
+        @Field("descripcion") descripcion: String?
+    ): Deferred<PlatoRegistradoResponse>
 }

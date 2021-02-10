@@ -5,6 +5,7 @@ import com.akipa.database.personal_logueado.PersonalLogueado
 object Constantes {
     const val CANTIDAD_PLATOS_MINIMA = 1
     const val CANTIDAD_PLATOS_MAXIMA = 10
+    const val PLATO_REGISTRADO_MENSAJE_EXITOSO = "Plato Registrado"
 
     /**
      * Mantendrá info del personal logueado actualmente.

@@ -13,16 +13,21 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
-import com.akipa.R
+import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.akipa.databinding.FragmentAgregarPlatoBinding
+import com.akipa.dto.request.PlatoRequest
+import com.akipa.utils.Constantes
 import java.io.ByteArrayOutputStream
 
 const val CAMERA_REQUEST_CODE = 777
 const val CAMERA_PERMISSION_CODE = 17
 
-class AgregarPlatoFragment : Fragment(R.layout.fragment_agregar_plato) {
+class AgregarPlatoFragment : Fragment() {
 
     private lateinit var binding: FragmentAgregarPlatoBinding
+    private val viewModel: AgregarPlatoViewModel by viewModels()
+    private lateinit var fotoBitmap: Bitmap
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -30,10 +35,30 @@ class AgregarPlatoFragment : Fragment(R.layout.fragment_agregar_plato) {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentAgregarPlatoBinding.inflate(inflater, container, false)
+        binding.lifecycleOwner = this
 
         binding.platoImagen.setOnClickListener { solicitarPermisoCamara() }
+        binding.agregarPlatoBoton.setOnClickListener { agregarPlato() }
+
+        viewModel.platoRegistradoResultado.observe(viewLifecycleOwner) { resultado ->
+            if (resultado == Constantes.PLATO_REGISTRADO_MENSAJE_EXITOSO) {
+                findNavController().navigate(AgregarPlatoFragmentDirections.actionAgregarPlatoFragmentToListaProductosFragment())
+                viewModel.registrarPlatoTerminado()
+            }
+        }
 
         return binding.root
+    }
+
+    // TODO: validaciones pendientes
+    private fun agregarPlato() {
+        val nombre = binding.nombrePlatoInput.text.toString()
+        val precio = binding.precioPlatoInput.text.toString().toDouble()
+        val descripcion = binding.descripcionPlatoInput.text.toString()
+        val foto = imagenToString(fotoBitmap)
+
+        val plato = PlatoRequest(nombre, precio, foto, descripcion)
+        viewModel.registrarPlato(plato)
     }
 
     private fun solicitarPermisoCamara() {
@@ -82,9 +107,9 @@ class AgregarPlatoFragment : Fragment(R.layout.fragment_agregar_plato) {
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if (requestCode == CAMERA_REQUEST_CODE && resultCode == Activity.RESULT_OK){
-            val foto = data?.extras?.get("data") as Bitmap
-            binding.platoImagen.setImageBitmap(foto)
+        if (requestCode == CAMERA_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
+            fotoBitmap = data?.extras?.get("data") as Bitmap
+            binding.platoImagen.setImageBitmap(fotoBitmap)
         }
         super.onActivityResult(requestCode, resultCode, data)
     }
