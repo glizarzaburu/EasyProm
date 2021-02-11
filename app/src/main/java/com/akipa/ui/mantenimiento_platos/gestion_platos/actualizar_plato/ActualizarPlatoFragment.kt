@@ -1,17 +1,25 @@
 package com.akipa.ui.mantenimiento_platos.gestion_platos.actualizar_plato
 
+import android.Manifest
+import android.app.Activity
+import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.os.Bundle
+import android.provider.MediaStore
 import android.util.Base64
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.akipa.databinding.FragmentActualizarPlatoBinding
 import com.akipa.dto.request.PlatoActualizarRequest
+import com.akipa.ui.mantenimiento_platos.agregar_plato.CAMERA_PERMISSION_CODE
+import com.akipa.ui.mantenimiento_platos.agregar_plato.CAMERA_REQUEST_CODE
 import com.akipa.utils.Constantes
 import java.io.ByteArrayOutputStream
 
@@ -32,6 +40,7 @@ class ActualizarPlatoFragment : Fragment() {
         binding.lifecycleOwner = this
         binding.plato = args.plato
         binding.editarPlatoBoton.setOnClickListener { actualizarPlato() }
+        binding.platoImagen.setOnClickListener { solicitarPermisoCamara() }
 
         viewModel.platoActualizadoResultado.observe(viewLifecycleOwner) {
             if (it == Constantes.PLATO_ACTUALIZADO_MENSAJE_EXITOSO) {
@@ -39,7 +48,6 @@ class ActualizarPlatoFragment : Fragment() {
                 viewModel.actualizarPlatoTerminado()
             }
         }
-
         return binding.root
     }
 
@@ -61,5 +69,47 @@ class ActualizarPlatoFragment : Fragment() {
             val bytes = it.toByteArray()
             return Base64.encodeToString(bytes, Base64.DEFAULT)
         }
+    }
+
+    private fun solicitarPermisoCamara() {
+        if (!tienePermisoCamara()) {
+            ActivityCompat.requestPermissions(
+                requireActivity(),
+                arrayOf(Manifest.permission.CAMERA),
+                CAMERA_PERMISSION_CODE
+            )
+        } else {
+            Intent(MediaStore.ACTION_IMAGE_CAPTURE).also {
+                startActivityForResult(it, CAMERA_REQUEST_CODE)
+            }
+        }
+    }
+
+    private fun tienePermisoCamara(): Boolean =
+        ActivityCompat.checkSelfPermission(
+            requireContext(),
+            Manifest.permission.CAMERA
+        ) == PackageManager.PERMISSION_GRANTED
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == CAMERA_PERMISSION_CODE && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            Intent(MediaStore.ACTION_IMAGE_CAPTURE).also {
+                startActivityForResult(it, CAMERA_REQUEST_CODE)
+            }
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (requestCode == CAMERA_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
+            fotoBitmap = data?.extras?.get("data") as Bitmap
+            binding.platoImagen.setImageBitmap(fotoBitmap)
+            imagenFueCambiada = true
+        }
+        super.onActivityResult(requestCode, resultCode, data)
     }
 }
