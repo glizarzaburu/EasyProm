@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="plato"
+            type="com.akipa.entidades.Plato" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/plato_imagen"
+            url_imagen="@{plato.urlImagen}"
+            android:layout_width="0dp"
+            android:layout_height="240dp"
+            android:contentDescription="@string/cd_imagen_para_nuevo_plato"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/ic_easyprom_logo_placeholder" />
+
+        <!--Nombre del Plato -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_nombre_plato"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:counterEnabled="true"
+            app:counterMaxLength="50"
+            app:errorEnabled="true"
+            app:layout_constraintTop_toBottomOf="@id/plato_imagen">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/nombre_plato_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/nombre_plato"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:text="@{plato.nombre}" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Precio del Plato -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_precio_plato"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:errorEnabled="true"
+            app:layout_constraintTop_toBottomOf="@id/til_nombre_plato">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/precio_plato_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/precio_plato"
+                android:importantForAutofill="no"
+                android:inputType="numberDecimal"
+                android:text="@{String.valueOf(plato.precio)}" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Descripcion del Plato -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_descripcion_plato"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:errorEnabled="true"
+            app:layout_constraintTop_toBottomOf="@id/til_precio_plato">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/descripcion_plato_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:hint="@string/descripcion_plato"
+                android:importantForAutofill="no"
+                android:inputType="textMultiLine"
+                android:text="@{plato.descripcion}" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/editar_plato_boton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/editar_plato"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/til_descripcion_plato" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -28,4 +28,5 @@
     <string name="cerrar_sesion">Cerrar Sesión</string>
     <string name="cd_boton_editar_plato">Boton para editar plato</string>
     <string name="cd_boton_eliminar_plato">Boton para eliminar plato</string>
+    <string name="editar_plato">Actualizar Plato</string>
 </resources>

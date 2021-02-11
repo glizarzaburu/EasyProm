@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.akipa.databinding.FragmentGestionPlatosBinding
 import com.akipa.entidades.Plato
 import com.akipa.ui.lista_platos.ListaProductosViewModel
@@ -33,7 +34,11 @@ class GestionPlatosFragment : Fragment(), GestionPlatosListener {
     }
 
     override fun onEditarClick(plato: Plato) {
-        Log.i("Gestion Platos", "Editar: $plato")
+        findNavController().navigate(
+            GestionPlatosFragmentDirections.actionGestionPlatosFragmentToActualizarPlatoFragment(
+                plato
+            )
+        )
     }
 
     override fun onEliminarClick(idPlato: Int) {

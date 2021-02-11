@@ -78,5 +78,22 @@
         android:id="@+id/gestionPlatosFragment"
         android:name="com.akipa.ui.mantenimiento_platos.gestion_platos.GestionPlatosFragment"
         android:label="@string/app_name"
-        tools:layout="@layout/fragment_gestion_platos" />
+        tools:layout="@layout/fragment_gestion_platos">
+        <action
+            android:id="@+id/action_gestionPlatosFragment_to_actualizarPlatoFragment"
+            app:destination="@id/actualizarPlatoFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/actualizarPlatoFragment"
+        android:name="com.akipa.ui.mantenimiento_platos.gestion_platos.actualizar_plato.ActualizarPlatoFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_actualizar_plato">
+        <argument
+            android:name="plato"
+            app:argType="com.akipa.entidades.Plato" />
+    </fragment>
 </navigation>
