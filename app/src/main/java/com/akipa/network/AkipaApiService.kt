@@ -28,4 +28,14 @@ interface AkipaApiService {
         @Field("foto") foto: String,
         @Field("descripcion") descripcion: String?
     ): Deferred<PlatoRegistradoResponse>
+
+    @FormUrlEncoded
+    @POST("actualizarPlato.php")
+    fun actualizarPlatoAsync(
+        @Field("id") id: Int,
+        @Field("nombre") nombre: String,
+        @Field("precio") precio: Double,
+        @Field("foto") foto: String,
+        @Field("descripcion") descripcion: String?
+    ): Deferred<PlatoRegistradoResponse>
 }

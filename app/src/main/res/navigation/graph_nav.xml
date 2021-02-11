@@ -95,5 +95,10 @@
         <argument
             android:name="plato"
             app:argType="com.akipa.entidades.Plato" />
+        <action
+            android:id="@+id/action_actualizarPlatoFragment_to_gestionPlatosFragment"
+            app:destination="@id/gestionPlatosFragment"
+            app:popUpTo="@id/gestionPlatosFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>
