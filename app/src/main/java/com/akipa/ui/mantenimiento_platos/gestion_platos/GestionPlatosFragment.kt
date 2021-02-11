@@ -7,10 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.akipa.databinding.FragmentGestionPlatosBinding
 import com.akipa.entidades.Plato
+import com.akipa.network.AkipaAPI
 import com.akipa.ui.lista_platos.ListaProductosViewModel
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class GestionPlatosFragment : Fragment(), GestionPlatosListener {
 
@@ -41,7 +45,6 @@ class GestionPlatosFragment : Fragment(), GestionPlatosListener {
         )
     }
 
-    override fun onEliminarClick(idPlato: Int) {
-        Log.i("Gestion Platos", "Eliminar: $idPlato")
-    }
+    override fun onEliminarClick(idPlato: Int) =
+        viewModel.eliminarPlato(idPlato)
 }

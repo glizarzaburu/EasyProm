@@ -7,6 +7,7 @@ object Constantes {
     const val CANTIDAD_PLATOS_MAXIMA = 10
     const val PLATO_REGISTRADO_MENSAJE_EXITOSO = "Plato Registrado"
     const val PLATO_ACTUALIZADO_MENSAJE_EXITOSO = "Plato Actualizado"
+    const val PLATO_ELIMINADO_MENSAJE_EXITOSO = "Plato Eliminado"
     const val IMAGEN_NO_ACTUALIZADA = "Imagen no fue actualizada"
 
     /**

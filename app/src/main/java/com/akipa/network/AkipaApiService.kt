@@ -38,4 +38,8 @@ interface AkipaApiService {
         @Field("foto") foto: String,
         @Field("descripcion") descripcion: String?
     ): Deferred<PlatoRegistradoResponse>
+
+    @FormUrlEncoded
+    @POST("eliminarPlato.php")
+    fun eliminarPlatoAsync(@Field("id") id: Int): Deferred<PlatoRegistradoResponse>
 }

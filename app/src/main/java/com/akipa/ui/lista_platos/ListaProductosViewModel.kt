@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import com.akipa.dto.ListadoPlatos
 import com.akipa.entidades.Plato
 import com.akipa.network.AkipaAPI
+import com.akipa.utils.Constantes
 import kotlinx.coroutines.*
 
 /**
@@ -51,6 +52,15 @@ class ListaProductosViewModel : ViewModel() {
                 _listadoPlatos.value = ArrayList()
             }
         }
+
+    fun eliminarPlato(idPlato: Int) {
+        coroutineScope.launch(Dispatchers.IO) {
+            val respuesta = AkipaAPI.retrofitService.eliminarPlatoAsync(idPlato).await()
+            if (respuesta.mensaje == Constantes.PLATO_ELIMINADO_MENSAJE_EXITOSO) {
+                obtenerListadoPlatos()
+            }
+        }
+    }
 
     override fun onCleared() {
         super.onCleared()
