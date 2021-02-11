@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Akipa</string>
     <string name="texto_placeholder">Texto de prueba</string>
-    <string name="cd_producto_imagen">Imagen del Producto</string>
+    <string name="cd_plato_imagen">Imagen del Plato</string>
     <string name="texto_cantidad">Cantidad</string>
     <string name="texto_agregar_al_carrito">Agregar al Carrito</string>
     <string name="texto_agregar_al_carrito2">Ir A Pagar</string>
@@ -26,4 +26,6 @@
     <string name="gestion_de_platos">Gestion de Platos</string>
     <string name="gestion_de_pedidos">Gestion de Pedidos</string>
     <string name="cerrar_sesion">Cerrar Sesión</string>
+    <string name="cd_boton_editar_plato">Boton para editar plato</string>
+    <string name="cd_boton_eliminar_plato">Boton para eliminar plato</string>
 </resources>

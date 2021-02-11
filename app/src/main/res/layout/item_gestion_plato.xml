@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="plato"
+            type="com.akipa.entidades.Plato" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/plato_imagen"
+                url_imagen="@{plato.urlImagen}"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:contentDescription="@string/cd_plato_imagen"
+                android:scaleType="centerCrop"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/ic_easyprom_logo_placeholder" />
+
+            <TextView
+                android:id="@+id/plato_nombre"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="@{plato.nombre}"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toTopOf="@+id/plato_precio"
+                app:layout_constraintEnd_toStartOf="@+id/plato_editar_boton"
+                app:layout_constraintStart_toEndOf="@+id/plato_imagen"
+                app:layout_constraintTop_toTopOf="@+id/plato_imagen"
+                app:layout_constraintVertical_chainStyle="spread_inside"
+                tools:text="Ceviche" />
+
+            <TextView
+                android:id="@+id/plato_precio"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{plato.precioFormateado}"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toTopOf="@+id/plato_descripcion"
+                app:layout_constraintEnd_toEndOf="@+id/plato_nombre"
+                app:layout_constraintStart_toStartOf="@+id/plato_nombre"
+                app:layout_constraintTop_toBottomOf="@+id/plato_nombre"
+                tools:text="S/69.69" />
+
+            <TextView
+                android:id="@+id/plato_descripcion"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="@{plato.descripcion}"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="@+id/plato_imagen"
+                app:layout_constraintEnd_toEndOf="@id/plato_precio"
+                app:layout_constraintStart_toStartOf="@+id/plato_precio"
+                app:layout_constraintTop_toBottomOf="@+id/plato_precio"
+                tools:text="Rico, picante y chingon" />
+
+            <ImageButton
+                android:id="@+id/plato_editar_boton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:contentDescription="@string/cd_boton_editar_plato"
+                android:src="@drawable/ic_edit"
+                app:layout_constraintBottom_toTopOf="@id/plato_eliminar_boton"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/plato_eliminar_boton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/cd_boton_eliminar_plato"
+                android:src="@drawable/ic_delete"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/plato_editar_boton"
+                app:layout_constraintTop_toBottomOf="@id/plato_editar_boton" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

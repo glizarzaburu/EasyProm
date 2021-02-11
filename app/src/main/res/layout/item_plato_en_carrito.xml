@@ -132,7 +132,7 @@
                         android:layout_marginTop="35dp"
                         android:layout_marginEnd="4dp"
                         android:onClick="@{() -> clickListener.onEliminarClick(platoEnCarrito)}"
-                        android:src="@drawable/ic_baseline_delete_24" />
+                        android:src="@drawable/ic_delete" />
 
                 </RelativeLayout>
             </LinearLayout>
