@@ -20,7 +20,6 @@
     <string name="cd_imagen_para_nuevo_plato">Imagen para nuevo plato</string>
     <string name="menu_agregar_plato">Agregar Plato</string>
     <string name="profile">Perfil</string>
-    <string name="finalizar_compra">Finalizar Compra</string>
     <string name="mis_pedidos">Mis pedidos</string>
     <string name="perfil_menu">Perfil</string>
     <string name="gestion_de_platos">Gestion de Platos</string>
@@ -32,4 +31,13 @@
     <string name="subtotal">Subtotal</string>
     <string name="tab_titulo_recojo_en_tienda">Recojo en Tienda</string>
     <string name="tab_titulo_delivery">Delivery</string>
+    <string name="hora_helper_text">Indique la hora en que estará acercándose al local</string>
+    <string name="fecha_helper_text">Indique la fecha en que estará acercándose al local</string>
+    <string name="local_helper_text">Indice el local al que se acercará</string>
+    <string name="realizar_pedido">Realizar Pedido</string>
+
+    <string-array name="akipa_locales">
+        <item>Salaverry</item>
+        <item>Chacarilla</item>
+    </string-array>
 </resources>

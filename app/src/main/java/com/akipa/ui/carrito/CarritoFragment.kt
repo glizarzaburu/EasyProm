@@ -63,5 +63,4 @@ class CarritoFragment : Fragment(), OnClickItemsCarrito {
             PEDIDOS_DELIVERY -> getString(R.string.tab_titulo_delivery)
             else -> throw IndexOutOfBoundsException()
         }
-
 }
