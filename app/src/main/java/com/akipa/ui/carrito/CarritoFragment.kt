@@ -6,8 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import com.akipa.R
 import com.akipa.database.plato_en_carrito.PlatoEnCarrito
 import com.akipa.databinding.FragmentCarritoBinding
+import com.akipa.utils.PEDIDOS_DELIVERY
+import com.akipa.utils.PEDIDOS_RECOJO_EN_TIENDA_INDEX
+import com.akipa.utils.RecojosYDeliveryPageAdapter
+import com.google.android.material.tabs.TabLayoutMediator
 
 class CarritoFragment : Fragment(), OnClickItemsCarrito {
 
@@ -28,6 +33,15 @@ class CarritoFragment : Fragment(), OnClickItemsCarrito {
         val adapter = CarritoAdapter(this)
         binding.listaCarrito.adapter = adapter
 
+        val tabs = binding.tabs
+        val viewpager = binding.viewpager
+
+        viewpager.adapter = RecojosYDeliveryPageAdapter(this)
+        // Estamos manejando los tabs para recojo en tienda | delivery
+        TabLayoutMediator(tabs, viewpager) { tab, position ->
+            tab.text = obtenerTituloTab(position)
+        }.attach()
+
         return binding.root
     }
 
@@ -42,5 +56,12 @@ class CarritoFragment : Fragment(), OnClickItemsCarrito {
     override fun onEliminarClick(platoEnCarrito: PlatoEnCarrito) {
         viewModel.quitarPlato(platoEnCarrito)
     }
+
+    private fun obtenerTituloTab(posicion: Int) =
+        when (posicion) {
+            PEDIDOS_RECOJO_EN_TIENDA_INDEX -> getString(R.string.tab_titulo_recojo_en_tienda)
+            PEDIDOS_DELIVERY -> getString(R.string.tab_titulo_delivery)
+            else -> throw IndexOutOfBoundsException()
+        }
 
 }

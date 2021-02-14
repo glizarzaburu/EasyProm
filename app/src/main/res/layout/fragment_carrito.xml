@@ -51,6 +51,18 @@
                 app:layout_constraintTop_toTopOf="@id/subtotal_texto"
                 tools:text="S/79.99" />
 
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/subtotal_valor" />
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/tabs" />
+
             <Button
                 android:id="@+id/finalizar_compra_boton"
                 android:layout_width="0dp"
@@ -59,7 +71,7 @@
                 android:text="@string/finalizar_compra"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/subtotal_valor" />
+                app:layout_constraintTop_toBottomOf="@id/viewpager" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

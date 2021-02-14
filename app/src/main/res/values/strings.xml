@@ -30,4 +30,6 @@
     <string name="cd_boton_eliminar_plato">Boton para eliminar plato</string>
     <string name="editar_plato">Actualizar Plato</string>
     <string name="subtotal">Subtotal</string>
+    <string name="tab_titulo_recojo_en_tienda">Recojo en Tienda</string>
+    <string name="tab_titulo_delivery">Delivery</string>
 </resources>
