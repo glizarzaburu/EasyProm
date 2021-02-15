@@ -12,7 +12,7 @@ import com.akipa.database.plato_en_carrito.PlatoEnCarrito
 import com.akipa.entidades.Plato
 import com.akipa.ui.carrito.CarritoAdapter
 import com.akipa.ui.lista_platos.EstadoListadoPlatos
-import com.akipa.ui.lista_platos.ListaProductosAdapter
+import com.akipa.ui.lista_platos.ListaPlatosAdapter
 import com.akipa.ui.mantenimiento_platos.gestion_platos.GestionPlatosAdapter
 
 /**
@@ -21,7 +21,7 @@ import com.akipa.ui.mantenimiento_platos.gestion_platos.GestionPlatosAdapter
  */
 @BindingAdapter("listaPlatos")
 fun RecyclerView.bindRecyclerView(data: List<Plato>?) {
-    val adapter = this.adapter as ListaProductosAdapter?
+    val adapter = this.adapter as ListaPlatosAdapter?
     adapter?.submitList(data)
 }
 

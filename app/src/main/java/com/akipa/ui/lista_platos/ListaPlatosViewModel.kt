@@ -18,7 +18,7 @@ import kotlinx.coroutines.*
  */
 enum class EstadoListadoPlatos { CARGANDO, ERROR, LISTO }
 
-class ListaProductosViewModel : ViewModel() {
+class ListaPlatosViewModel : ViewModel() {
 
     private var viewModelJob = Job()
     private val coroutineScope = CoroutineScope(viewModelJob + Dispatchers.Main)

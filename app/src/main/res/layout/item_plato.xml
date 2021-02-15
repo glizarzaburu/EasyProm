@@ -11,7 +11,7 @@
 
         <variable
             name="listener"
-            type="com.akipa.ui.lista_platos.ProductoListener" />
+            type="com.akipa.ui.lista_platos.ListaPlatosListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

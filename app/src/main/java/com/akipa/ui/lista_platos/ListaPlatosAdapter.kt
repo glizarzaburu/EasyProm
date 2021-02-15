@@ -8,8 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.akipa.databinding.ItemPlatoBinding
 import com.akipa.entidades.Plato
 
-class ListaProductosAdapter(private val clickListener: ProductoListener) :
-    ListAdapter<Plato, ListaProductosAdapter.ListaProductosViewHolder>(ListaProductosDiffCallback()) {
+class ListaPlatosAdapter(private val clickListener: ListaPlatosListener) :
+    ListAdapter<Plato, ListaPlatosAdapter.ListaProductosViewHolder>(ListaPlatosDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListaProductosViewHolder =
         ListaProductosViewHolder.from(parent)
@@ -22,7 +22,7 @@ class ListaProductosAdapter(private val clickListener: ProductoListener) :
     class ListaProductosViewHolder(private val binding: ItemPlatoBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(plato: Plato, clickListener: ProductoListener) {
+        fun bind(plato: Plato, clickListener: ListaPlatosListener) {
             binding.plato = plato
             binding.listener = clickListener
             binding.executePendingBindings()
@@ -39,7 +39,7 @@ class ListaProductosAdapter(private val clickListener: ProductoListener) :
 
 }
 
-class ListaProductosDiffCallback : DiffUtil.ItemCallback<Plato>() {
+class ListaPlatosDiffCallback : DiffUtil.ItemCallback<Plato>() {
 
     override fun areItemsTheSame(oldItem: Plato, newItem: Plato): Boolean =
         oldItem.id == newItem.id
@@ -48,6 +48,6 @@ class ListaProductosDiffCallback : DiffUtil.ItemCallback<Plato>() {
         oldItem == newItem
 }
 
-class ProductoListener(val clickListener: (plato: Plato) -> Unit) {
+class ListaPlatosListener(val clickListener: (plato: Plato) -> Unit) {
     fun onClick(plato: Plato) = clickListener(plato)
 }

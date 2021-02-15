@@ -6,10 +6,10 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.akipa.databinding.ItemGestionPlatoBinding
 import com.akipa.entidades.Plato
-import com.akipa.ui.lista_platos.ListaProductosDiffCallback
+import com.akipa.ui.lista_platos.ListaPlatosDiffCallback
 
 class GestionPlatosAdapter(private val clickListener: GestionPlatosListener) :
-    ListAdapter<Plato, GestionPlatosAdapter.GestionPlatosViewHolder>(ListaProductosDiffCallback()) {
+    ListAdapter<Plato, GestionPlatosAdapter.GestionPlatosViewHolder>(ListaPlatosDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GestionPlatosViewHolder =
         GestionPlatosViewHolder.from(parent)

@@ -8,13 +8,13 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.akipa.R
-import com.akipa.databinding.FragmentListaplatosBinding
+import com.akipa.databinding.FragmentListaPlatosBinding
 import com.akipa.utils.Constantes
 
-class ListaProductosFragment : Fragment() {
+class ListaPlatosFragment : Fragment() {
 
-    private val viewModel: ListaProductosViewModel by viewModels()
-    private lateinit var binding: FragmentListaplatosBinding
+    private val viewModel: ListaPlatosViewModel by viewModels()
+    private lateinit var binding: FragmentListaPlatosBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -22,14 +22,14 @@ class ListaProductosFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
-        binding = FragmentListaplatosBinding.inflate(inflater, container, false)
+        binding = FragmentListaPlatosBinding.inflate(inflater, container, false)
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
 
-        val adapter = ListaProductosAdapter(ProductoListener { plato ->
+        val adapter = ListaPlatosAdapter(ListaPlatosListener { plato ->
             findNavController()
                 .navigate(
-                    ListaProductosFragmentDirections.actionListaProductosFragmentToDetallePlatoFragment(
+                    ListaPlatosFragmentDirections.actionListaProductosFragmentToDetallePlatoFragment(
                         plato
                     )
                 )
