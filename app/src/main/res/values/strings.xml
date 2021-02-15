@@ -35,6 +35,10 @@
     <string name="fecha_helper_text">Indique la fecha en que estará acercándose al local</string>
     <string name="local_helper_text">Indice el local al que se acercará</string>
     <string name="realizar_pedido">Realizar Pedido</string>
+    <string name="direccion_helper_text">Indique la dirección a la que se debe llevar su pedido</string>
+    <string name="hint_direccion">Dirección</string>
+    <string name="referencia_helper_text">Puede indicar una referencia (opcional)</string>
+    <string name="hint_referencia">Referencia</string>
 
     <string-array name="akipa_locales">
         <item>Salaverry</item>
